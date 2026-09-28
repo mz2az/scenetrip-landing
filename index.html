@@ -1,0 +1,382 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>SceneTrip — K-콘텐츠 촬영지 여행</title>
+<meta name="description" content="SceneTrip(씬트립)은 외국인 여행자가 2000년대 이후 한국 드라마·영화·K-pop 콘텐츠의 실제 촬영지를 지도에서 찾고, AI로 여행 코스를 짜고, 도보·대중교통 길안내를 받으며 여행하는 앱입니다. 한국관광공사 TourAPI로 촬영지 주변 관광 정보를 제공합니다.">
+<meta name="color-scheme" content="light dark">
+<meta name="theme-color" content="#6d5df5">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="SceneTrip">
+<meta property="og:title" content="SceneTrip — Travel to the real filming locations of K-content">
+<meta property="og:description" content="드라마·영화·K-pop 촬영지를 지도에서 찾고, AI로 코스를 짜고, 길안내를 받으며 여행하세요. Find, plan and navigate to K-content filming locations in Korea.">
+<meta property="og:url" content="https://scenetrip.io/">
+<meta property="og:image" content="https://scenetrip.io/assets/og-image.jpg">
+<meta property="og:locale" content="ko_KR">
+<meta property="og:locale:alternate" content="en_US">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="icon" type="image/png" href="assets/favicon.png">
+<link rel="apple-touch-icon" href="assets/apple-touch-icon.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;500;700;800&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --bg: #f7f6fc;
+    --surface: #ffffff;
+    --surface-2: #efedfb;
+    --text: #1b1a2e;
+    --muted: #5d5b74;
+    --line: #e2dff2;
+    --brand: #6d5df5;
+    --brand-2: #4f8cff;
+    --brand-ink: #ffffff;
+    --accent: #ffb347;
+    --hero-a: #8fa8f7;
+    --hero-b: #6d5df5;
+    --shadow: 0 10px 30px rgba(55, 45, 140, .12);
+  }
+  @media (prefers-color-scheme: dark) {
+    :root {
+      --bg: #0f0e1a;
+      --surface: #1a1930;
+      --surface-2: #232142;
+      --text: #ecebf7;
+      --muted: #a9a7c4;
+      --line: #2e2c52;
+      --brand: #9a8dff;
+      --brand-2: #7fb0ff;
+      --brand-ink: #14132a;
+      --hero-a: #33306e;
+      --hero-b: #4a3cb8;
+      --shadow: 0 10px 30px rgba(0, 0, 0, .35);
+    }
+  }
+  * { box-sizing: border-box; }
+  html { scroll-behavior: smooth; }
+  body {
+    margin: 0;
+    background: var(--bg);
+    color: var(--text);
+    font-family: "Noto Sans KR", -apple-system, BlinkMacSystemFont, "Apple SD Gothic Neo", "Segoe UI", sans-serif;
+    line-height: 1.7;
+    word-break: keep-all;
+    overflow-wrap: anywhere;
+    -webkit-text-size-adjust: 100%;
+  }
+  img { max-width: 100%; height: auto; display: block; }
+  a { color: var(--brand); }
+  .wrap { max-width: 1080px; margin: 0 auto; padding: 0 16px; }
+
+  /* language toggle: Korean by default, English on toggle */
+  html[lang="ko"] [lang="en"]:not(.always) { display: none; }
+  html[lang="en"] [lang="ko"]:not(.always) { display: none; }
+
+  header.top {
+    position: sticky; top: 0; z-index: 10;
+    background: color-mix(in srgb, var(--bg) 88%, transparent);
+    backdrop-filter: saturate(1.4) blur(10px);
+    -webkit-backdrop-filter: saturate(1.4) blur(10px);
+    border-bottom: 1px solid var(--line);
+  }
+  .top .wrap { display: flex; align-items: center; gap: 12px; height: 60px; }
+  .logo { display: flex; align-items: center; gap: 8px; font-weight: 800; font-size: 1.15rem; color: var(--text); text-decoration: none; }
+  .logo img { width: 34px; height: 34px; }
+  nav.links { margin-left: auto; display: flex; gap: 18px; font-size: .92rem; }
+  nav.links a { color: var(--muted); text-decoration: none; }
+  nav.links a:hover { color: var(--text); }
+  .lang-btn {
+    border: 1px solid var(--line); background: var(--surface); color: var(--text);
+    border-radius: 999px; padding: 6px 12px; font: inherit; font-size: .85rem; cursor: pointer;
+  }
+  @media (max-width: 720px) { nav.links { display: none; } .lang-btn { margin-left: auto; } }
+
+  .hero {
+    background: linear-gradient(160deg, var(--hero-a), var(--hero-b));
+    color: #fff;
+    overflow: hidden;
+  }
+  .hero .wrap { display: grid; grid-template-columns: 1.2fr .8fr; gap: 24px; align-items: center; padding-top: 56px; padding-bottom: 56px; }
+  .hero h1 { font-size: clamp(1.9rem, 5vw, 3rem); line-height: 1.25; margin: 0 0 16px; letter-spacing: -.02em; }
+  .hero p.lead { font-size: clamp(1rem, 2.2vw, 1.15rem); opacity: .95; margin: 0 0 24px; }
+  .eyebrow { display: inline-block; font-size: .8rem; font-weight: 700; letter-spacing: .06em; background: rgba(255,255,255,.18); padding: 4px 10px; border-radius: 999px; margin-bottom: 14px; }
+  .hero .mascot { justify-self: center; max-width: 300px; filter: drop-shadow(0 16px 30px rgba(20,10,80,.35)); }
+  .chips { display: flex; flex-wrap: wrap; gap: 8px; }
+  .chip { background: rgba(255,255,255,.16); border: 1px solid rgba(255,255,255,.3); padding: 5px 12px; border-radius: 999px; font-size: .85rem; }
+  @media (max-width: 720px) {
+    .hero .wrap { grid-template-columns: 1fr; text-align: left; padding-top: 36px; padding-bottom: 36px; }
+    .hero .mascot { max-width: 170px; grid-row: 1; justify-self: start; }
+  }
+
+  section { padding: 64px 0; }
+  section + section { border-top: 1px solid var(--line); }
+  h2 { font-size: clamp(1.4rem, 3.4vw, 2rem); margin: 0 0 8px; letter-spacing: -.01em; }
+  .sub { color: var(--muted); margin: 0 0 32px; }
+
+  .features { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; }
+  .feature { background: var(--surface); border: 1px solid var(--line); border-radius: 18px; padding: 22px; box-shadow: var(--shadow); }
+  .feature .ico { width: 40px; height: 40px; border-radius: 12px; display: grid; place-items: center; background: var(--surface-2); color: var(--brand); margin-bottom: 12px; }
+  .feature h3 { margin: 0 0 6px; font-size: 1.05rem; }
+  .feature p { margin: 0; color: var(--muted); font-size: .95rem; }
+  @media (max-width: 900px) { .features { grid-template-columns: repeat(2, 1fr); } }
+  @media (max-width: 560px) { .features { grid-template-columns: 1fr; } }
+
+  .shots { display: grid; grid-template-columns: repeat(5, 1fr); gap: 16px; }
+  .shots figure { margin: 0; }
+  .shots img { border-radius: 22px; border: 1px solid var(--line); box-shadow: var(--shadow); background: var(--surface); }
+  .shots figcaption { text-align: center; font-size: .85rem; color: var(--muted); margin-top: 8px; }
+  @media (max-width: 900px) {
+    .shots { grid-template-columns: none; grid-auto-flow: column; grid-auto-columns: 58%; overflow-x: auto; scroll-snap-type: x mandatory; padding-bottom: 8px; }
+    .shots figure { scroll-snap-align: start; }
+  }
+  .note { font-size: .82rem; color: var(--muted); margin-top: 14px; }
+
+  .tour { background: var(--surface-2); }
+  .tour-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+  .card { background: var(--surface); border: 1px solid var(--line); border-radius: 18px; padding: 22px; }
+  .card h3 { margin: 0 0 10px; font-size: 1.05rem; }
+  .card ul { margin: 0; padding-left: 1.1em; color: var(--muted); }
+  .card li { margin: 4px 0; }
+  .card li strong { color: var(--text); }
+  .tag { display: inline-block; font-size: .72rem; font-weight: 700; padding: 2px 8px; border-radius: 999px; vertical-align: middle; margin-left: 6px; }
+  .tag.now { background: color-mix(in srgb, var(--brand) 18%, transparent); color: var(--brand); }
+  .tag.next { background: color-mix(in srgb, var(--accent) 25%, transparent); color: #b36b00; }
+  @media (prefers-color-scheme: dark) { .tag.next { color: var(--accent); } }
+  @media (max-width: 720px) { .tour-grid { grid-template-columns: 1fr; } }
+  .flow { display: flex; flex-wrap: wrap; align-items: center; gap: 8px; margin: 0 0 24px; }
+  .flow span.step { background: var(--surface); border: 1px solid var(--line); border-radius: 12px; padding: 8px 12px; font-size: .9rem; }
+  .flow span.arrow { color: var(--muted); }
+  table.data { width: 100%; border-collapse: collapse; font-size: .92rem; background: var(--surface); border-radius: 14px; overflow: hidden; }
+  table.data th, table.data td { text-align: left; padding: 10px 12px; border-bottom: 1px solid var(--line); vertical-align: top; }
+  table.data th { background: var(--surface-2); font-weight: 700; }
+  .table-scroll { overflow-x: auto; margin-top: 16px; border-radius: 14px; border: 1px solid var(--line); }
+  .attrib { margin-top: 20px; display: flex; gap: 12px; align-items: center; background: var(--surface); border: 1px dashed var(--brand); border-radius: 14px; padding: 14px 16px; font-size: .93rem; }
+  .attrib img { width: 54px; flex: none; }
+
+  .contact { margin-top: 24px; display: flex; flex-wrap: wrap; gap: 12px; align-items: center; }
+  .btn { display: inline-block; background: var(--brand); color: var(--brand-ink); padding: 10px 18px; border-radius: 12px; text-decoration: none; font-weight: 700; }
+
+  footer { background: var(--surface); border-top: 1px solid var(--line); padding: 32px 0 40px; font-size: .88rem; color: var(--muted); }
+  footer .cols { display: grid; grid-template-columns: 1.4fr 1fr; gap: 24px; }
+  footer h4 { margin: 0 0 8px; color: var(--text); font-size: .92rem; }
+  footer ul { list-style: none; padding: 0; margin: 0; }
+  footer li { margin: 4px 0; }
+  @media (max-width: 720px) { footer .cols { grid-template-columns: 1fr; } }
+  .svg-i { width: 22px; height: 22px; stroke: currentColor; fill: none; stroke-width: 2; stroke-linecap: round; stroke-linejoin: round; }
+</style>
+</head>
+<body>
+
+<header class="top">
+  <div class="wrap">
+    <a class="logo" href="#top"><img src="assets/haetae-face.png" alt="" width="34" height="34">SceneTrip</a>
+    <nav class="links" aria-label="페이지 내 이동">
+      <a href="#features"><span lang="ko">기능</span><span lang="en">Features</span></a>
+      <a href="#tourapi"><span lang="ko">TourAPI 활용</span><span lang="en">TourAPI data</span></a>
+      <a href="#team"><span lang="ko">팀</span><span lang="en">Team</span></a>
+    </nav>
+    <button class="lang-btn" id="langBtn" type="button" aria-label="Switch language / 언어 전환">English</button>
+  </div>
+</header>
+
+<main id="top">
+  <!-- HERO -->
+  <div class="hero">
+    <div class="wrap">
+      <div>
+        <span class="eyebrow">K-CONTENT FILMING LOCATIONS · TRAVEL APP</span>
+        <div lang="ko">
+          <h1>드라마 속 그 장소로,<br>진짜 여행을 떠나세요.</h1>
+          <p class="lead"><strong>SceneTrip(씬트립)</strong>은 한국을 찾는 외국인 여행자가 2000년대 이후 한국 드라마·영화·K-pop·예능 콘텐츠의 <strong>실제 촬영지(성지)</strong>를 지도에서 찾고, AI로 여행 코스를 짜고, 도보·대중교통 길안내를 받으며 여행할 수 있게 돕는 모바일 앱입니다.</p>
+        </div>
+        <div lang="en">
+          <h1>From the screen<br>to the real place.</h1>
+          <p class="lead"><strong>SceneTrip</strong> is a mobile app for international visitors to Korea. Find the <strong>real filming locations</strong> of Korean dramas, films, K-pop and variety shows from the 2000s onward on a map, plan a route with AI, and get walking and public-transit directions while you travel.</p>
+        </div>
+        <div class="chips">
+          <span class="chip">iOS · Android</span>
+          <span class="chip" lang="ko">외국인 여행자 대상</span><span class="chip" lang="en">For international travelers</span>
+          <span class="chip" lang="ko">한국관광공사 TourAPI 활용</span><span class="chip" lang="en">Powered by KTO TourAPI</span>
+        </div>
+      </div>
+      <img class="mascot" src="assets/haetae-sit.png" alt="SceneTrip 마스코트 해태 / SceneTrip mascot Haetae" width="525" height="582">
+    </div>
+  </div>
+
+  <!-- FEATURES -->
+  <section id="features">
+    <div class="wrap">
+      <h2><span lang="ko">주요 기능</span><span lang="en">What you can do</span></h2>
+      <p class="sub"><span lang="ko">작품 검색부터 현장 도착, 기록까지 한 앱에서 이어집니다.</span><span lang="en">From searching a title to arriving on location and keeping a record — all in one app.</span></p>
+      <div class="features">
+        <div class="feature">
+          <div class="ico"><svg class="svg-i" viewBox="0 0 24 24"><circle cx="11" cy="11" r="7"/><path d="M21 21l-4.3-4.3"/></svg></div>
+          <h3><span lang="ko">작품 검색 → 지도에서 촬영지 보기</span><span lang="en">Search a title, see locations on the map</span></h3>
+          <p><span lang="ko">작품·배우·장소 이름으로 검색하면 해당 작품의 촬영지가 지도 위에 표시됩니다.</span><span lang="en">Search by title, actor or place and the filming locations appear as pins on the map.</span></p>
+        </div>
+        <div class="feature">
+          <div class="ico"><svg class="svg-i" viewBox="0 0 24 24"><path d="M12 3l1.9 4.6L18.5 9l-4.6 1.9L12 15.5l-1.9-4.6L5.5 9l4.6-1.4z"/><path d="M19 15l.8 2 2 .8-2 .8-.8 2-.8-2-2-.8 2-.8z"/></svg></div>
+          <h3><span lang="ko">AI 여행 코스 짜기</span><span lang="en">AI trip planning</span></h3>
+          <p><span lang="ko">가고 싶은 작품과 일정을 고르면 AI가 날짜별 동선(코스)을 제안하고, 직접 순서를 바꾸거나 장소를 더할 수 있습니다.</span><span lang="en">Pick the shows you love and your dates; AI proposes a day-by-day course you can reorder and edit.</span></p>
+        </div>
+        <div class="feature">
+          <div class="ico"><svg class="svg-i" viewBox="0 0 24 24"><path d="M3 11l18-8-8 18-2-8z"/></svg></div>
+          <h3><span lang="ko">여행 중 길안내</span><span lang="en">In-trip navigation</span></h3>
+          <p><span lang="ko">다음 촬영지까지 도보와 대중교통(버스·지하철) 경로를 단계별로 안내합니다.</span><span lang="en">Step-by-step walking and public-transit (bus, subway) directions to the next location.</span></p>
+        </div>
+        <div class="feature">
+          <div class="ico"><svg class="svg-i" viewBox="0 0 24 24"><path d="M21 12a8 8 0 0 1-11.6 7.1L4 20l1-4.6A8 8 0 1 1 21 12z"/></svg></div>
+          <h3><span lang="ko">여행 가이드 챗봇</span><span lang="en">Travel-guide chatbot</span></h3>
+          <p><span lang="ko">"주변 음식점 알려줘"처럼 물으면 지금 있는 촬영지를 기준으로 주변 식당·관광지·숙소를 찾아 줍니다.</span><span lang="en">Ask "restaurants nearby?" and the guide finds places to eat, see and stay around your current location.</span></p>
+        </div>
+        <div class="feature">
+          <div class="ico"><svg class="svg-i" viewBox="0 0 24 24"><circle cx="12" cy="9" r="6"/><path d="M8.5 14l-1.5 7 5-3 5 3-1.5-7"/></svg></div>
+          <h3><span lang="ko">방문 스탬프</span><span lang="en">Visit stamps</span></h3>
+          <p><span lang="ko">촬영지 가까이(100 m 안)에 도착하면 스탬프가 찍혀 나만의 성지순례 기록이 남습니다.</span><span lang="en">Arrive within 100 m of a location to collect a stamp and build your own pilgrimage log.</span></p>
+        </div>
+        <div class="feature">
+          <div class="ico"><svg class="svg-i" viewBox="0 0 24 24"><path d="M4 5h16v11H8l-4 4z"/></svg></div>
+          <h3><span lang="ko">커뮤니티·코스 공유</span><span lang="en">Community &amp; shared courses</span></h3>
+          <p><span lang="ko">다른 여행자가 만든 코스를 가져오고, 후기를 나눌 수 있습니다.</span><span lang="en">Import courses made by other travelers and share your reviews.</span></p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SCREENSHOTS -->
+  <section id="screens">
+    <div class="wrap">
+      <h2><span lang="ko">앱 화면</span><span lang="en">Screenshots</span></h2>
+      <p class="sub"><span lang="ko">개발 중인 iOS 앱의 실제 화면입니다.</span><span lang="en">Actual screens from the iOS app in development.</span></p>
+      <div class="shots">
+        <figure><img src="assets/screen-courses.jpg" alt="코스 목록 화면" width="506" height="1100" loading="lazy"><figcaption><span lang="ko">내 코스</span><span lang="en">My courses</span></figcaption></figure>
+        <figure><img src="assets/screen-planner.jpg" alt="날짜별 코스 편집 화면" width="506" height="1100" loading="lazy"><figcaption><span lang="ko">코스 편집</span><span lang="en">Course editor</span></figcaption></figure>
+        <figure><img src="assets/screen-guide.jpg" alt="여행 가이드 챗봇 화면" width="506" height="1100" loading="lazy"><figcaption><span lang="ko">여행 가이드</span><span lang="en">Travel guide</span></figcaption></figure>
+        <figure><img src="assets/screen-navigation.jpg" alt="도보·대중교통 길안내 화면" width="506" height="1100" loading="lazy"><figcaption><span lang="ko">길안내</span><span lang="en">Directions</span></figcaption></figure>
+        <figure><img src="assets/screen-mypage.jpg" alt="마이페이지와 방문 스탬프 화면" width="506" height="1100" loading="lazy"><figcaption><span lang="ko">스탬프·마이페이지</span><span lang="en">Stamps &amp; profile</span></figcaption></figure>
+      </div>
+      <p class="note"><span lang="ko">앱 UI는 현재 한국어로 개발 중이며 영어·일본어·중국어 화면을 준비하고 있습니다. 화면 속 지도는 네이버 지도입니다.</span><span lang="en">The app UI is being built in Korean first; English, Japanese and Chinese are in preparation. Maps shown are Naver Maps.</span></p>
+    </div>
+  </section>
+
+  <!-- TOURAPI -->
+  <section id="tourapi" class="tour">
+    <div class="wrap">
+      <h2><span lang="ko">한국관광공사 TourAPI 활용</span><span lang="en">How we use KTO TourAPI</span></h2>
+      <p class="sub"><span lang="ko">촬영지 하나만 보고 끝나지 않도록, 그 주변에서 무엇을 보고·먹고·머물지를 TourAPI 공공데이터로 채웁니다.</span><span lang="en">A filming location is the start, not the end — TourAPI data tells travelers what to see, eat and where to stay around it.</span></p>
+
+      <div class="flow" aria-label="데이터 흐름">
+        <span class="step">TourAPI</span><span class="arrow">→</span>
+        <span class="step" lang="ko">SceneTrip 서버 적재·중복 정리</span><span class="step" lang="en">Loaded &amp; de-duplicated on SceneTrip server</span><span class="arrow">→</span>
+        <span class="step" lang="ko">촬영지 반경 검색</span><span class="step" lang="en">Radius search around each location</span><span class="arrow">→</span>
+        <span class="step" lang="ko">지도·코스·챗봇에 표시</span><span class="step" lang="en">Map, course &amp; chatbot</span>
+      </div>
+
+      <div class="tour-grid">
+        <div class="card">
+          <h3><span lang="ko">촬영지 주변 관광 정보</span><span lang="en">What's around each location</span><span class="tag now" lang="ko">사용 중</span><span class="tag now" lang="en">In use</span></h3>
+          <ul lang="ko">
+            <li><strong>관광지·문화시설·축제·레포츠·쇼핑</strong> — 촬영지 주변 가볼 곳으로 지도와 코스 편집 화면에 표시</li>
+            <li><strong>음식점·숙박</strong> — 주변 식당·숙소 추천과 챗봇 "주변 음식점/숙소" 답변에 사용</li>
+            <li>AI 코스 짜기에서 촬영지 사이에 끼워 넣을 관광지 후보로 사용</li>
+            <li>현재 국문 목록 약 3만 3천 건(관광)과 음식·숙박 일부를 적재해 사용</li>
+          </ul>
+          <ul lang="en">
+            <li><strong>Attractions, cultural facilities, festivals, leisure, shopping</strong> — shown on the map and in the course editor as places to visit nearby</li>
+            <li><strong>Restaurants and lodging</strong> — nearby recommendations and chatbot answers</li>
+            <li>Candidate stops the AI planner can add between filming locations</li>
+            <li>About 33,000 attraction records (Korean list) plus some food/lodging records are loaded today</li>
+          </ul>
+        </div>
+        <div class="card">
+          <h3><span lang="ko">외국인을 위한 다국어 정보</span><span lang="en">Multilingual info for visitors</span><span class="tag next" lang="ko">운영계정으로 확대</span><span class="tag next" lang="en">Expanding with production access</span></h3>
+          <ul lang="ko">
+            <li><strong>영문·일문·중문 공식 장소명과 주소</strong> — 외국인이 현지에서 간판·표지판과 대조하고 택시·길찾기에 쓸 수 있도록 표시</li>
+            <li><strong>관광지 개요·이용 안내</strong>(운영시간, 휴무일, 이용요금 등)를 외국어로 제공</li>
+            <li>촬영지·코스·챗봇 답변이 여행자의 언어로 보이도록 다국어 서비스 연동</li>
+            <li>운영 트래픽을 감당할 수 있도록 정기 동기화 방식으로 서버에 적재</li>
+          </ul>
+          <ul lang="en">
+            <li><strong>Official English, Japanese and Chinese place names and addresses</strong> — to match local signs and use with taxis and directions</li>
+            <li><strong>Overviews and visitor info</strong> (hours, closing days, fees) in the traveler's language</li>
+            <li>Locations, courses and chatbot answers shown in the traveler's language via the multilingual services</li>
+            <li>Synced to our server on a schedule to serve production traffic</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="table-scroll">
+        <table class="data">
+          <thead>
+            <tr><th lang="ko">앱 화면</th><th lang="en">Screen</th><th lang="ko">TourAPI 데이터</th><th lang="en">TourAPI data</th><th lang="ko">여행자에게 보이는 것</th><th lang="en">What the traveler sees</th></tr>
+          </thead>
+          <tbody>
+            <tr><td lang="ko">지도(작품 검색)</td><td lang="en">Map</td><td lang="ko">관광지·문화시설 좌표·분류</td><td lang="en">Attraction / cultural facility coordinates &amp; category</td><td lang="ko">촬영지 주변 볼거리 핀</td><td lang="en">Pins for things to see nearby</td></tr>
+            <tr><td lang="ko">코스 편집·AI 코스</td><td lang="en">Course editor &amp; AI planner</td><td lang="ko">관광지·음식점·숙박 목록</td><td lang="en">Attractions, restaurants, lodging</td><td lang="ko">동선에 넣을 장소 후보</td><td lang="en">Places to add to the route</td></tr>
+            <tr><td lang="ko">여행 가이드 챗봇</td><td lang="en">Travel-guide chatbot</td><td lang="ko">반경 내 장소명·주소·분류</td><td lang="en">Names, addresses, categories within a radius</td><td lang="ko">"주변 음식점" 등 질문의 답</td><td lang="en">Answers to "what's nearby?"</td></tr>
+            <tr><td lang="ko">장소 정보</td><td lang="en">Place info</td><td lang="ko">외국어 장소명·주소·개요</td><td lang="en">Foreign-language names, addresses, overviews</td><td lang="ko">여행자 언어로 된 장소 안내</td><td lang="en">Place info in the traveler's language</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <div class="attrib">
+        <img src="assets/haetae-pinhold.png" alt="" width="355" height="397">
+        <div>
+          <span lang="ko">TourAPI 데이터가 쓰이는 앱 화면에는 <strong>「출처: 한국관광공사 TourAPI」</strong>를 표기하며, 공공누리 이용 조건을 따릅니다.</span>
+          <span lang="en">Screens that use TourAPI data carry the credit <strong>"Source: Korea Tourism Organization (TourAPI)"</strong>, following the KOGL terms of use.</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- TEAM -->
+  <section id="team">
+    <div class="wrap">
+      <h2><span lang="ko">만든 팀</span><span lang="en">Team</span></h2>
+      <p class="sub"><span lang="ko">팀 <strong>mz2az</strong> · 과학기술정보통신부 AI·SW마에스트로 제17기 프로젝트</span><span lang="en">Team <strong>mz2az</strong> · AI·SW Maestro, 17th cohort (Ministry of Science and ICT, Korea)</span></p>
+      <div class="contact">
+        <a class="btn" href="mailto:geminiwombat@gmail.com"><span lang="ko">문의하기</span><span lang="en">Contact us</span></a>
+        <span class="always" style="color:var(--muted)">geminiwombat@gmail.com</span>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div class="wrap cols">
+    <div>
+      <h4 class="always">SceneTrip · mz2az</h4>
+      <p style="margin:0 0 8px"><span lang="ko">외국인 여행자를 위한 K-콘텐츠 촬영지 여행 앱</span><span lang="en">A K-content filming-location travel app for international visitors</span></p>
+      <p style="margin:0"><a href="privacy.html"><span lang="ko">개인정보처리방침</span><span lang="en">Privacy Policy (Korean)</span></a></p>
+      <p style="margin:12px 0 0">© 2026 mz2az. All rights reserved.</p>
+    </div>
+    <div>
+      <h4><span lang="ko">데이터 출처</span><span lang="en">Data sources</span></h4>
+      <ul>
+        <li lang="ko">관광 정보: 한국관광공사 TourAPI</li>
+        <li lang="en">Tourism data: Korea Tourism Organization (TourAPI)</li>
+        <li lang="ko">음식점·숙박 정보: 소상공인시장진흥공단 상가(상권)정보</li>
+        <li lang="en">Restaurants &amp; lodging: SEMAS commercial district data</li>
+      </ul>
+      <p class="note" style="margin-top:10px"><span lang="ko">작품 포스터·스틸 이미지는 이 페이지에 사용하지 않았습니다. 작품명은 각 권리자의 상표일 수 있습니다.</span><span lang="en">No posters or stills are used on this page. Titles may be trademarks of their respective owners.</span></p>
+    </div>
+  </div>
+</footer>
+
+<script>
+  (function () {
+    var root = document.documentElement, btn = document.getElementById('langBtn');
+    function set(l) {
+      root.lang = l;
+      btn.textContent = l === 'ko' ? 'English' : '한국어';
+      try { localStorage.setItem('st-lang', l); } catch (e) {}
+    }
+    var q = new URLSearchParams(location.search).get('lang'), saved = null;
+    try { saved = localStorage.getItem('st-lang'); } catch (e) {}
+    set(q === 'en' || q === 'ko' ? q : (saved || ((navigator.language || 'ko').indexOf('ko') === 0 ? 'ko' : 'en')));
+    btn.addEventListener('click', function () { set(root.lang === 'ko' ? 'en' : 'ko'); });
+  })();
+</script>
+</body>
+</html>
