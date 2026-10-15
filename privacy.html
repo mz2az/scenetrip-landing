@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>개인정보처리방침 — SceneTrip</title>
-<meta name="description" content="SceneTrip(씬트립) 앱의 개인정보처리방침(초안)입니다.">
+<meta name="description" content="SceneTrip(씬트립) 앱의 개인정보처리방침입니다. Privacy Policy of the SceneTrip app.">
 <meta name="color-scheme" content="light dark">
 <meta name="robots" content="noindex">
 <link rel="icon" type="image/png" href="assets/favicon.png">
@@ -12,21 +12,25 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;700&display=swap" rel="stylesheet">
 <style>
-  :root { --bg:#f7f6fc; --surface:#fff; --text:#1b1a2e; --muted:#5d5b74; --line:#e2dff2; --brand:#6d5df5; --warn-bg:#fff4e0; --warn-text:#7a4b00; }
+  :root { --bg:#f7f6fc; --surface:#fff; --text:#1b1a2e; --muted:#5d5b74; --line:#e2dff2; --brand:#6d5df5; }
   @media (prefers-color-scheme: dark) {
-    :root { --bg:#0f0e1a; --surface:#1a1930; --text:#ecebf7; --muted:#a9a7c4; --line:#2e2c52; --brand:#9a8dff; --warn-bg:#3a2c10; --warn-text:#ffd59a; }
+    :root { --bg:#0f0e1a; --surface:#1a1930; --text:#ecebf7; --muted:#a9a7c4; --line:#2e2c52; --brand:#9a8dff; }
   }
   * { box-sizing: border-box; }
+  html { scroll-behavior:smooth; }
   body { margin:0; background:var(--bg); color:var(--text); font-family:"Noto Sans KR",-apple-system,"Apple SD Gothic Neo",sans-serif; line-height:1.75; word-break:keep-all; overflow-wrap:anywhere; }
   .wrap { max-width:780px; margin:0 auto; padding:24px 16px 56px; }
   a { color:var(--brand); }
+  .top { display:flex; align-items:center; justify-content:space-between; gap:12px; flex-wrap:wrap; }
   .back { display:inline-flex; align-items:center; gap:8px; text-decoration:none; font-weight:700; color:var(--text); }
   .back img { width:30px; height:30px; }
+  .lang { font-size:.9rem; color:var(--muted); }
   h1 { font-size:1.7rem; margin:24px 0 8px; }
   h2 { font-size:1.12rem; margin:32px 0 8px; padding-top:16px; border-top:1px solid var(--line); }
+  h3 { font-size:1rem; margin:20px 0 6px; }
   p, li { color:var(--text); }
   .meta { color:var(--muted); font-size:.9rem; }
-  .draft { background:var(--warn-bg); color:var(--warn-text); border-radius:12px; padding:12px 14px; font-size:.92rem; margin:16px 0; }
+  .part { border-top:3px solid var(--line); }
   table { width:100%; border-collapse:collapse; font-size:.92rem; background:var(--surface); }
   th, td { border:1px solid var(--line); padding:8px 10px; text-align:left; vertical-align:top; }
   .scroll { overflow-x:auto; }
@@ -34,57 +38,264 @@
 </style>
 </head>
 <body>
-<div class="wrap">
-  <a class="back" href="index.html"><img src="assets/haetae-face.png" alt="" width="30" height="30">SceneTrip</a>
+<div class="wrap" id="ko">
+  <div class="top">
+    <a class="back" href="index.html"><img src="assets/haetae-face.png" alt="" width="30" height="30">SceneTrip</a>
+    <span class="lang">한국어 · <a href="#en" lang="en">English</a></span>
+  </div>
 
   <h1>개인정보처리방침</h1>
-  <p class="meta">시행일: 2026년 __월 __일 (초안)</p>
+  <p class="meta">시행일: 2026년 10월 15일</p>
 
-  <!-- TODO: 초안. 실제 수집 항목·보관 기간·위탁/국외이전 여부·책임자 연락처를 팀이 확인한 뒤 확정한다. -->
-  <div class="draft"><strong>초안(DRAFT)</strong> — 이 문서는 서비스 출시 전 작성한 초안이며, 정식 출시 전에 실제 운영 내용에 맞게 보완·확정됩니다.</div>
+  <p>SceneTrip 운영팀(이하 "운영팀")은 SceneTrip(씬트립) 앱과 웹사이트(이하 "서비스")를 운영하면서 「개인정보 보호법」 등 관련 법령을 지킵니다. 이 방침은 운영팀이 어떤 정보를 왜 모으고, 얼마나 보관하며, 누구에게 맡기는지 설명합니다. 서비스는 과학기술정보통신부 AI·SW마에스트로 제17기 프로젝트 팀 mz2az가 운영합니다.</p>
 
-  <p>팀 mz2az(이하 "팀")는 SceneTrip(씬트립) 앱 및 웹사이트(이하 "서비스") 이용자의 개인정보를 「개인정보 보호법」 등 관련 법령에 따라 보호하며, 다음과 같이 개인정보처리방침을 둡니다.</p>
-
-  <h2>1. 처리하는 개인정보 항목</h2>
+  <h2>1. 처리하는 개인정보와 목적</h2>
+  <p>회원가입 없이도 촬영지 검색, 코스 만들기 등 주요 기능을 쓸 수 있습니다. 로그인은 리뷰·여행후기 작성, 길찾기, 여러 기기에서 기록 이어 쓰기 등에 필요합니다.</p>
   <div class="scroll">
   <table>
-    <thead><tr><th>구분</th><th>항목</th><th>처리 목적</th></tr></thead>
+    <thead><tr><th>구분</th><th>항목</th><th>목적</th></tr></thead>
     <tbody>
-      <tr><td>회원가입·로그인(선택)</td><td>소셜 로그인 식별자, 닉네임, 이메일(제공 시)</td><td>계정 식별, 코스·찜·스탬프 저장</td></tr>
-      <tr><td>서비스 이용</td><td>저장한 코스, 찜한 작품, 방문 스탬프, 작성한 게시글</td><td>여행 기록·코스 제공, 커뮤니티 운영</td></tr>
-      <tr><td>위치 정보</td><td>기기 위치(이용자가 허용한 경우)</td><td>주변 촬영지·관광 정보 표시, 길안내, 스탬프 도착 확인</td></tr>
-      <tr><td>자동 수집</td><td>기기 정보, 앱 버전, 접속 기록, 오류 기록</td><td>서비스 안정성 확보, 부정 이용 방지</td></tr>
+      <tr><td>로그인(구글·애플)</td><td>로그인 제공자의 회원 식별자, 이메일 주소(애플은 대리 주소일 수 있음), 이름(애플은 첫 로그인 때만 제공), 애플 로그인 연결 해제용 토큰(암호화 보관)</td><td>회원 식별, 로그인 유지, 탈퇴 시 애플 계정 연결 해제</td></tr>
+      <tr><td>회원 프로필</td><td>닉네임</td><td>리뷰·여행후기 작성자 표시</td></tr>
+      <tr><td>앱 설치 정보</td><td>앱이 처음 실행될 때 만드는 설치 식별자</td><td>비회원 기록(저장한 장소·찜·코스) 유지, 중복 집계 방지</td></tr>
+      <tr><td>서비스 이용 기록</td><td>저장한 장소, 찜한 작품, 만든 코스와 방문 체크, 조회한 작품·장소, 검색어</td><td>코스·여행 기능 제공, 인기 순위 계산</td></tr>
+      <tr><td>게시물</td><td>리뷰·여행후기의 글과 첨부 사진</td><td>커뮤니티 운영</td></tr>
+      <tr><td>신고·차단</td><td>신고한 회원(비회원은 기기 식별자로 만든 계정), 신고한 글, 신고 이유와 설명, 신고 당시 글의 작성자와 본문 앞부분(200자) / 차단한 회원과 차단당한 회원, 차단한 때</td><td>신고 검토, 차단한 회원의 글 숨기기</td></tr>
+      <tr><td>AI 기능(AI 가이드, AI 코스 만들기)</td><td>입력한 질문과 대화, 관심 작품, 여행 조건(일수·속도·꼭 가고 싶은 곳), 코스 맥락(화면의 코스 지점, 주변 장소 이름)</td><td>AI 가이드 답변과 AI 여행 일정 생성</td></tr>
+      <tr><td>위치</td><td>기기 위치(이용자가 허용한 경우, 앱을 쓰는 동안만)</td><td>주변 촬영지·편의시설 검색, 길찾기, 방문 확인, 발자취 기록(이용자가 켠 경우)</td></tr>
+      <tr><td>자동 수집</td><td>앱 이용 기록(어떤 화면·기능을 썼는지), 기기·OS 정보, 앱 버전, IP 주소로 추정한 대략적 지역, 접속·오류 기록</td><td>서비스 개선과 통계, 안정성 확보, 부정 이용 방지</td></tr>
+      <tr><td>광고 측정(iOS, 추적 허용 시에만)</td><td>광고 식별자(IDFA), 기기 정보, 앱 안의 일부 행동(장소 저장, 코스 만들기)</td><td>광고 성과 측정</td></tr>
     </tbody>
   </table>
   </div>
-  <p>회원가입 없이도 주요 기능을 이용할 수 있습니다.</p>
+  <p>운영팀은 주민등록번호, 결제 정보, 연락처 목록 같은 정보를 받지 않습니다. 지금 서비스에는 결제 기능이 없습니다.</p>
 
-  <h2>2. 위치정보의 처리</h2>
-  <p>위치 정보는 이용자가 기기 설정에서 허용한 경우에만 사용합니다. 주변 정보 검색과 길안내, 스탬프 확인을 위해 요청 시점에 사용하며, 이동 경로를 계속 기록하여 보관하지 않습니다. 위치 권한은 언제든지 기기 설정에서 끌 수 있습니다.</p>
+  <h2>2. 위치정보</h2>
+  <ul>
+    <li>위치는 이용자가 기기 설정에서 허용한 경우에만, 앱을 쓰는 동안에만 사용합니다. 앱이 백그라운드에 있을 때는 위치를 쓰지 않습니다.</li>
+    <li>주변 검색과 길찾기를 할 때 위치를 운영팀 서버로 보내 결과를 받습니다. 길찾기 경로를 계산하기 위해 출발지·도착지 좌표가 카카오에 전달됩니다(4항 참고).</li>
+    <li>AI 가이드를 쓸 때 기기 위치 좌표는 주변 검색을 위해 운영팀 서버에서 처리하며, AI 모델에 보내는 기본 대화 내용에서는 제외합니다. AI 코스 만들기에는 공개된 촬영지의 좌표가 사용됩니다.</li>
+    <li><strong>발자취(이동 경로)</strong>는 기본으로 꺼져 있고, 이용자가 동의하고 켠 경우에만 기록합니다. 발자취는 <strong>기기에만 저장되며 서버로 보내지 않습니다.</strong> 앱에서 언제든 전부 지울 수 있고, 로그아웃하거나 탈퇴하면 기기에서 삭제되며 기록 동의도 꺼집니다.</li>
+    <li>코스의 방문 체크(어느 지점을 다녀왔는지)는 발자취와 달리 코스 정보의 일부로 서버에 저장됩니다.</li>
+    <li>위치 권한은 언제든지 기기 설정에서 끌 수 있습니다. 꺼도 검색과 코스 만들기는 쓸 수 있습니다.</li>
+  </ul>
 
-  <h2>3. 보유 및 이용 기간</h2>
-  <p>개인정보는 수집·이용 목적이 달성되거나 회원이 탈퇴하면 지체 없이 파기합니다. 다만 관련 법령에서 보존을 요구하는 경우 해당 기간 동안 보관합니다.</p>
+  <h2>3. 보유 기간과 파기</h2>
+  <div class="scroll">
+  <table>
+    <thead><tr><th>정보</th><th>보유 기간</th></tr></thead>
+    <tbody>
+      <tr><td>계정 정보, 닉네임, 저장한 장소·찜·코스</td><td>탈퇴할 때까지. 탈퇴하면 지체 없이 파기합니다.</td></tr>
+      <tr><td>비회원의 서버 기록(설치 식별자에 연결된 저장한 장소·찜·코스 등)</td><td>마지막 이용 후 1년이 지나면 삭제. 그 전에도 support@scenetrip.io로 삭제를 요청할 수 있습니다. 앱을 지우는 것만으로는 서버 기록이 삭제되지 않습니다.</td></tr>
+      <tr><td>리뷰·여행후기와 사진</td><td>게시물은 삭제하는 즉시 서비스 목록에서 내려갑니다. 첨부 사진은 자동 삭제 작업으로 차례로 삭제하며, 복구용 사본은 삭제 처리 후 30일이 지나면 자동 파기 절차를 밟습니다. 탈퇴할 때는 아래를 참고해 주세요.</td></tr>
+      <tr><td>데이터 정리 중 임시 보관한 리뷰 사본</td><td>서비스 데이터를 정리하는 과정에서 임시로 보관한 리뷰 사본도 삭제 요청이나 탈퇴 시 함께 삭제합니다.</td></tr>
+      <tr><td>조회한 작품·장소 기록</td><td>90일 후 삭제</td></tr>
+      <tr><td>검색어</td><td>기기나 회원과 연결하지 않고 저장하며, 90일 후 삭제</td></tr>
+      <tr><td>AI 기능 대화</td><td>대화를 이어 가기 위해 질문과 답변 일부를 서버 메모리에 임시로 둡니다. 30분 동안 쓰지 않은 대화는 이후 요청을 처리할 때 정리합니다. 중복 요청 처리를 위한 답변 사본은 만든 지 24시간이 지나면 이후 요청을 처리할 때 삭제합니다. 대화 원문을 뺀 처리 통계(결과·사용한 기능·걸린 시간)는 90일 보관합니다.</td></tr>
+      <tr><td>신고 기록</td><td>접수 후 1년간 보관한 뒤 파기. 신고한 회원이 탈퇴하면 신고 기록에서 신고자 정보와의 연결을 끊습니다.</td></tr>
+      <tr><td>차단 기록</td><td>어느 한쪽이 탈퇴하면 함께 삭제</td></tr>
+      <tr><td>발자취</td><td>기기에만 있으며, 이용자가 지우거나 로그아웃·탈퇴하면 삭제</td></tr>
+      <tr><td>앱 이용 통계(Firebase)</td><td>14개월</td></tr>
+      <tr><td>서버 접속·오류 기록</td><td>1년</td></tr>
+    </tbody>
+  </table>
+  </div>
+  <h3>탈퇴할 때</h3>
+  <p>회원 탈퇴 시 계정 정보는 지체 없이 파기합니다. 회원이 작성한 리뷰·여행후기와 첨부 사진도 함께 삭제합니다(사진 파일은 자동 삭제 작업으로 순차 삭제). 애플로 가입한 경우 탈퇴할 때 애플 계정과의 연결도 해제합니다.</p>
+  <h3>파기 방법</h3>
+  <p>전자 파일 형태의 개인정보는 복구할 수 없는 방법으로 삭제합니다. 보유 기간이 지난 정보는 서버가 정해진 주기로 자동 삭제합니다. 법령에 따라 보관해야 하는 정보는 다른 정보와 분리해 그 기간 동안만 보관합니다.</p>
 
-  <h2>4. 제3자 제공 및 처리 위탁</h2>
-  <p>팀은 이용자의 동의 없이 개인정보를 제3자에게 제공하지 않습니다. 서비스 운영을 위해 클라우드 서버 등 외부 서비스를 이용하는 경우, 위탁받는 자와 위탁 업무의 내용을 이 방침에 공개합니다.</p>
-  <!-- TODO: 실제 사용하는 클라우드(예: AWS), 지도·길찾기, AI 모델 제공자 등 위탁·국외이전 대상을 표로 적는다. -->
+  <h2>4. 처리 위탁과 국외 이전</h2>
+  <p>운영팀은 이용자의 개인정보를 판매하지 않으며, 법령에 따른 요청이 있는 경우를 빼고는 동의 없이 제3자에게 제공하지 않습니다. 서비스 운영을 위해 다음 업체에 처리를 맡기고 있고, 일부는 국외로 이전됩니다. 이전은 모두 이용자가 해당 기능을 쓸 때 네트워크(암호화된 인터넷 통신)로 이루어집니다.</p>
+  <div class="scroll">
+  <table>
+    <thead><tr><th>받는 자(국가) · 연락처</th><th>맡기는 일</th><th>전달되는 정보</th><th>보유·이용 기간</th><th>거부 방법과 효과</th></tr></thead>
+    <tbody>
+      <tr><td>Amazon Web Services, Inc.<br>(서버 위치: 대한민국 서울 리전)<br>aws.amazon.com/privacy</td><td>서버·데이터베이스 운영, 사진 저장</td><td>이 방침에서 서버에 저장한다고 적은 정보</td><td>탈퇴할 때까지, 또는 3항의 기간까지</td><td>거부할 수 없습니다. 서버 없이는 서비스를 제공할 수 없습니다.</td></tr>
+      <tr><td>Amazon Web Services, Inc. — Amazon Bedrock<br>(미국, 오리건 us-west-2 리전)<br>aws.amazon.com/privacy</td><td>AI 가이드 답변과 AI 코스 일정 생성(AI 모델 실행)</td><td>AI 기능에 입력한 질문과 대화, 관심 작품, 여행 조건, 코스 맥락, 공개 촬영지 좌표</td><td>답변 생성에만 쓰입니다. 운영팀은 3항에 적은 것 외에는 보관하지 않습니다.</td><td>AI 기능을 처음 쓸 때 안내하고 허용을 받습니다. 허용하지 않거나 AI 기능을 쓰지 않으면 전송되지 않으며, 이 경우 AI 가이드와 AI 코스 만들기만 쓸 수 없습니다.</td></tr>
+      <tr><td>Google LLC — Firebase 애널리틱스<br>(미국)<br>support.google.com/policies → 개인정보 문의</td><td>앱 이용 통계</td><td>앱 이용 기록, 기기·OS 정보, 앱 인스턴스 식별자, 대략적 지역. 이름·이메일·좌표·글 본문·검색어 원문은 보내지 않습니다.</td><td>14개월</td><td>마이페이지의 「이용 통계 수집」 스위치로 언제든 끌 수 있습니다. 꺼도 앱 이용에는 영향이 없습니다.</td></tr>
+      <tr><td>Meta Platforms, Inc. — Meta SDK(iOS)<br>(미국)<br>facebook.com/privacy/policy</td><td>광고 성과 측정</td><td>광고 식별자(IDFA), 기기 정보, 앱 안의 일부 행동(장소 저장, 코스 만들기)</td><td>Meta 데이터 정책에 따릅니다. 다만 iOS에서 추적을 허용한 경우에만 전송되며, 허용하지 않으면 아무것도 보내지 않습니다.</td><td>추적 허용 창에서 거부하거나 iPhone 설정에서 끄면 됩니다. 거부해도 앱 이용에는 영향이 없습니다.</td></tr>
+      <tr><td>네이버클라우드 주식회사 — 지도 SDK<br>(대한민국)<br>www.ncloud.com (하단 「개인정보처리방침」)</td><td>앱 안의 지도 표시</td><td>지도를 표시할 때 앱이 기기에서 직접 요청하며, 이때 IP 주소와 기기 정보가 전달됩니다.</td><td>네이버클라우드의 처리방침에 따름</td><td>지도는 앱의 핵심 화면이라 따로 끌 수 없습니다.</td></tr>
+      <tr><td>주식회사 카카오 — 길찾기 API<br>(대한민국)<br>www.kakao.com/policy/privacy</td><td>대중교통·도보 길찾기 경로 계산</td><td>출발지·도착지 좌표(이용자를 식별하는 정보는 보내지 않음)</td><td>경로 계산에만 사용</td><td>길찾기를 쓰지 않으면 전송되지 않습니다.</td></tr>
+    </tbody>
+  </table>
+  </div>
+  <p>구글·애플 로그인은 이용자가 고른 로그인 제공자를 거치며, 해당 회사의 개인정보처리방침이 함께 적용됩니다. 이 웹사이트는 글꼴을 Google Fonts에서 불러오며, 이때 Google에 IP 주소와 브라우저 요청 정보가 전달됩니다.</p>
 
-  <h2>5. 개인정보의 파기</h2>
-  <p>전자 파일 형태의 개인정보는 복구할 수 없는 방법으로 삭제합니다.</p>
+  <h2>5. 자동 수집 장치와 광고 추적</h2>
+  <ul>
+    <li>앱은 쿠키를 쓰지 않습니다. 대신 Firebase 애널리틱스 SDK와 Meta SDK(iOS만)가 들어 있습니다.</li>
+    <li><strong>Firebase 애널리틱스</strong>는 어떤 화면과 기능이 많이 쓰이는지 보는 통계에 씁니다. iOS에서는 광고 식별자를 쓰지 않는 버전(FirebaseAnalyticsCore)을 사용합니다. 마이페이지의 「이용 통계 수집」 스위치로 언제든 끌 수 있습니다.</li>
+    <li><strong>iOS 앱 추적 투명성(ATT)</strong>: 온보딩 뒤 다른 회사의 앱·웹사이트에 걸친 추적을 허용할지 묻습니다. Meta 측정은 <strong>허용한 경우에만</strong> 켜지고 광고 식별자로 광고 성과를 측정합니다. 허용하지 않아도 앱의 모든 기능을 그대로 쓸 수 있습니다.</li>
+    <li>허용 여부는 언제든지 iPhone의 <em>설정 &gt; 개인정보 보호 및 보안 &gt; 추적</em>에서 바꿀 수 있습니다. 허용을 끄면 그 뒤로는 Meta로 측정 정보를 보내지 않습니다.</li>
+    <li>Android 앱에는 Meta SDK가 들어 있지 않습니다.</li>
+  </ul>
 
-  <h2>6. 이용자의 권리</h2>
-  <p>이용자는 언제든지 자신의 개인정보를 열람·정정·삭제하거나 처리 정지를 요구할 수 있으며, 앱 내 설정 또는 아래 연락처로 요청할 수 있습니다.</p>
+  <h2>6. 이용자의 권리와 행사 방법</h2>
+  <p>이용자는 언제든지 자신의 개인정보를 열람·정정·삭제하거나 처리 정지를 요구할 수 있고, 동의를 철회할 수 있습니다.</p>
+  <ul>
+    <li>앱에서 직접: 닉네임 변경, 리뷰·여행후기 삭제, 발자취 삭제·기록 끄기, 이용 통계 수집 끄기, 로그아웃, 탈퇴(마이페이지)</li>
+    <li>기기 설정에서: 위치 권한 끄기, iOS 추적 허용 끄기</li>
+    <li>그 밖의 요청(비회원 서버 기록 삭제 포함): 9항의 이메일로 보내 주시면 지체 없이(늦어도 10일 안에) 처리하고 결과를 알려 드립니다. 본인 확인을 위해 가입한 로그인 방식 등을 여쭐 수 있습니다.</li>
+  </ul>
+  <p>법정대리인이나 위임받은 사람을 통해서도 권리를 행사할 수 있습니다. 개인정보 침해에 대한 상담과 구제는 아래 기관에도 문의할 수 있습니다.</p>
+  <ul>
+    <li>개인정보침해 신고센터: privacy.kisa.or.kr / 국번 없이 118</li>
+    <li>개인정보 분쟁조정위원회: www.kopico.go.kr / 1833-6972</li>
+    <li>대검찰청: www.spo.go.kr / 국번 없이 1301</li>
+    <li>경찰청: ecrm.police.go.kr / 국번 없이 182</li>
+  </ul>
 
-  <h2>7. 안전성 확보 조치</h2>
-  <p>전송 구간 암호화(HTTPS), 접근 권한 최소화, 비밀정보의 별도 보관 등 개인정보 보호를 위한 조치를 합니다.</p>
+  <h2>7. 만 14세 미만 아동</h2>
+  <p>서비스는 만 14세 미만 아동을 대상으로 하지 않으며, 만 14세 미만 아동의 회원가입을 받지 않습니다. 만 14세 미만 아동의 정보가 수집된 사실을 알게 되면 지체 없이 삭제합니다.</p>
 
-  <h2>8. 개인정보 보호책임자 및 문의</h2>
-  <p>개인정보 보호책임자: 팀 mz2az<br>문의: <a href="mailto:geminiwombat@gmail.com">geminiwombat@gmail.com</a></p>
+  <h2>8. 안전성 확보 조치</h2>
+  <ul>
+    <li>앱과 서버 사이의 통신은 HTTPS로 암호화합니다.</li>
+    <li>서버의 로그인 갱신용 토큰은 해시로, 애플 연결 해제용 토큰은 암호화해 보관합니다.</li>
+    <li>서버의 비밀번호·키는 코드와 분리해 별도의 비밀 저장소에 둡니다.</li>
+    <li>개인정보에 접근할 수 있는 사람을 운영 인원으로 한정하고, 접근 권한을 최소로 둡니다.</li>
+  </ul>
 
-  <h2>9. 방침의 변경</h2>
-  <p>이 방침이 바뀌는 경우 시행 7일 전부터 서비스 화면을 통해 알립니다.</p>
+  <h2>9. 개인정보 보호 담당 부서와 문의</h2>
+  <p>개인정보 보호 담당 부서: SceneTrip 운영팀 · <a href="mailto:support@scenetrip.io">support@scenetrip.io</a></p>
+  <p>개인정보에 관한 문의, 불만, 피해 구제 요청은 위 이메일로 보내 주세요.</p>
 
-  <footer>© 2026 mz2az · <a href="index.html">SceneTrip 홈으로</a></footer>
+  <h2>10. 방침의 변경</h2>
+  <p>이 방침이 바뀌면 시행 7일 전부터 이 페이지와 앱 안에서 알립니다. 수집 항목 추가나 제3자 제공처럼 이용자 권리에 중요한 변경은 30일 전부터 알립니다.</p>
+  <p class="meta">시행일: 2026년 10월 15일</p>
+
+  <footer>© 2026 mz2az · <a href="terms.html">이용약관</a> · <a href="index.html">SceneTrip 홈으로</a></footer>
+</div>
+
+<div class="wrap part" id="en" lang="en">
+  <div class="top">
+    <a class="back" href="index.html"><img src="assets/haetae-face.png" alt="" width="30" height="30">SceneTrip</a>
+    <span class="lang"><a href="#ko" lang="ko">한국어</a> · English</span>
+  </div>
+
+  <h1>Privacy Policy</h1>
+  <p class="meta">Effective date: October 15, 2026</p>
+
+  <p>The SceneTrip Operations Team ("we", "us") runs the SceneTrip app and website (the "Service") in line with Korea's Personal Information Protection Act and other applicable laws. This policy explains what information we collect and why, how long we keep it, and who processes it for us. The Service is operated by team mz2az, a project team in the 17th cohort of AI·SW Maestro, a program of Korea's Ministry of Science and ICT. If the Korean and English versions differ, the Korean version prevails.</p>
+
+  <h2>1. Information we process and why</h2>
+  <p>You can search filming locations and build courses without an account. Signing in is needed to post reviews and travel stories, use directions, and keep your records across devices.</p>
+  <div class="scroll">
+  <table>
+    <thead><tr><th>Category</th><th>Items</th><th>Purpose</th></tr></thead>
+    <tbody>
+      <tr><td>Sign-in (Google, Apple)</td><td>Your account identifier at the sign-in provider, email address (with Apple this may be a relay address), name (Apple provides it only on first sign-in), a token used to disconnect Sign in with Apple (stored encrypted)</td><td>Identifying members, keeping you signed in, disconnecting Apple when you delete your account</td></tr>
+      <tr><td>Profile</td><td>Nickname</td><td>Showing the author of reviews and travel stories</td></tr>
+      <tr><td>App install</td><td>An install identifier created on first launch</td><td>Keeping guest records (saved places, favorites, courses), avoiding double counting</td></tr>
+      <tr><td>Usage records</td><td>Saved places, favorite titles, courses and visit check-ins, titles and places you viewed, search terms</td><td>Providing course and trip features, calculating popularity rankings</td></tr>
+      <tr><td>Posts</td><td>Text and photos in reviews and travel stories</td><td>Running the community</td></tr>
+      <tr><td>Reports and blocks</td><td>Reporting member (for guests, an account created from the install identifier), reported post, reason and description, the post's author and its first 200 characters at the time of the report / blocking member, blocked member, time of block</td><td>Reviewing reports, hiding posts from members you blocked</td></tr>
+      <tr><td>AI features (AI guide, AI course planner)</td><td>Questions and conversation you type, titles you are interested in, trip conditions (number of days, pace, must-visit places), course context (stops on screen, names of nearby places)</td><td>Generating AI guide answers and AI trip plans</td></tr>
+      <tr><td>Location</td><td>Device location (only if you allow it, only while the app is in use)</td><td>Nearby search, directions, visit check-ins, trail recording (if you turn it on)</td></tr>
+      <tr><td>Collected automatically</td><td>App usage (which screens and features you use), device and OS information, app version, approximate region inferred from IP address, access and error logs</td><td>Statistics and improvement, stability, preventing abuse</td></tr>
+      <tr><td>Ad measurement (iOS, only if you allow tracking)</td><td>Advertising identifier (IDFA), device information, some in-app actions (saving a place, creating a course)</td><td>Measuring ad performance</td></tr>
+    </tbody>
+  </table>
+  </div>
+  <p>We do not collect national ID numbers, payment information, or your contacts. The Service has no payment feature at this time.</p>
+
+  <h2>2. Location</h2>
+  <ul>
+    <li>We use location only if you allow it in your device settings, and only while you are using the app. We do not use location in the background.</li>
+    <li>For nearby search and directions, your location is sent to our server to get results. To calculate routes, the start and destination coordinates are sent to Kakao (see Section 4).</li>
+    <li>When you use the AI guide, your device coordinates are processed on our server for nearby search and are left out of the default conversation sent to the AI model. The AI course planner uses the coordinates of public filming locations.</li>
+    <li><strong>Trail (your movement path)</strong> is off by default and is recorded only if you agree and turn it on. Your trail is <strong>stored only on your device and never sent to our server.</strong> You can delete all of it in the app at any time. Signing out or deleting your account removes it from the device and turns recording off.</li>
+    <li>Course visit check-ins (which stops you visited) are different from the trail: they are part of your course and are stored on our server.</li>
+    <li>You can turn off location permission in your device settings at any time. Search and course building still work without it.</li>
+  </ul>
+
+  <h2>3. Retention and deletion</h2>
+  <div class="scroll">
+  <table>
+    <thead><tr><th>Information</th><th>How long we keep it</th></tr></thead>
+    <tbody>
+      <tr><td>Account information, nickname, saved places, favorites, courses</td><td>Until you delete your account; then deleted without delay.</td></tr>
+      <tr><td>Guest records on our server (saved places, favorites, courses and so on linked to the install identifier)</td><td>Deleted 1 year after last use. You can also ask for deletion earlier at support@scenetrip.io. Deleting the app alone does not delete server records.</td></tr>
+      <tr><td>Reviews, travel stories and photos</td><td>A deleted post is taken off the Service's lists immediately. Attached photos are deleted in turn by an automatic deletion job, and recovery copies enter automatic disposal 30 days after deletion is processed. For account deletion, see below.</td></tr>
+      <tr><td>Temporary review copies made during data cleanup</td><td>Temporary copies of reviews kept while cleaning up Service data are also deleted on request or when you delete your account.</td></tr>
+      <tr><td>Titles and places you viewed</td><td>Deleted after 90 days</td></tr>
+      <tr><td>Search terms</td><td>Stored without being linked to your device or account; deleted after 90 days</td></tr>
+      <tr><td>AI feature conversations</td><td>To keep a conversation going, parts of your questions and answers are held temporarily in server memory. Conversations unused for 30 minutes are cleared when later requests are processed. Copies of answers kept to handle duplicate requests are deleted, when later requests are processed, once they are 24 hours old. Processing statistics without conversation text (outcome, features used, response time) are kept for 90 days.</td></tr>
+      <tr><td>Reports</td><td>Kept for 1 year after receipt, then deleted. If the reporting member deletes their account, the report is unlinked from them.</td></tr>
+      <tr><td>Blocks</td><td>Deleted when either member deletes their account</td></tr>
+      <tr><td>Trail</td><td>On your device only; removed when you delete it, sign out or delete your account</td></tr>
+      <tr><td>App statistics (Firebase)</td><td>14 months</td></tr>
+      <tr><td>Server access and error logs</td><td>1 year</td></tr>
+    </tbody>
+  </table>
+  </div>
+  <h3>When you delete your account</h3>
+  <p>Your account information is deleted without delay. Reviews and travel stories you wrote, and their photos, are deleted as well (photo files are removed in turn by an automatic deletion job). If you signed up with Apple, we also disconnect your Apple account.</p>
+  <h3>How we delete</h3>
+  <p>Electronic records are deleted so that they cannot be recovered. Our server deletes information automatically on a schedule once its retention period ends. Information we must keep by law is stored separately and only for the required period.</p>
+
+  <h2>4. Processors and international transfers</h2>
+  <p>We do not sell your personal information, and we do not give it to third parties without your consent except where required by law. We use the following companies to run the Service; some of them receive data outside Korea. All transfers happen over the network (encrypted internet connections) when you use the related feature.</p>
+  <div class="scroll">
+  <table>
+    <thead><tr><th>Recipient (country) · contact</th><th>Task</th><th>Data transferred</th><th>Retention</th><th>How to refuse and effect</th></tr></thead>
+    <tbody>
+      <tr><td>Amazon Web Services, Inc.<br>(servers in the Republic of Korea, Seoul region)<br>aws.amazon.com/privacy</td><td>Servers, database, photo storage</td><td>The information this policy says is stored on our server</td><td>Until you delete your account, or for the periods in Section 3</td><td>Cannot be refused; the Service cannot run without servers.</td></tr>
+      <tr><td>Amazon Web Services, Inc. — Amazon Bedrock<br>(USA, Oregon us-west-2 region)<br>aws.amazon.com/privacy</td><td>Generating AI guide answers and AI course plans (running the AI model)</td><td>Questions and conversation typed into AI features, titles of interest, trip conditions, course context, coordinates of public filming locations</td><td>Used only to generate answers. We keep nothing beyond what Section 3 describes.</td><td>The app explains this and asks for your permission the first time you use an AI feature. If you do not allow it or do not use AI features, nothing is sent; only the AI guide and AI course planner become unavailable.</td></tr>
+      <tr><td>Google LLC — Firebase Analytics<br>(USA)<br>support.google.com/policies → privacy contact</td><td>App usage statistics</td><td>App usage, device and OS information, app instance ID, approximate region. We do not send names, emails, coordinates, post text or raw search terms.</td><td>14 months</td><td>Turn it off at any time with the "Usage statistics" switch in My page. Using the app is not affected.</td></tr>
+      <tr><td>Meta Platforms, Inc. — Meta SDK (iOS)<br>(USA)<br>facebook.com/privacy/policy</td><td>Ad performance measurement</td><td>Advertising identifier (IDFA), device information, some in-app actions (saving a place, creating a course)</td><td>According to Meta's data policy. Data is sent only if you allow tracking on iOS; if you do not, nothing is sent.</td><td>Decline the tracking prompt or turn tracking off in iPhone Settings. Using the app is not affected.</td></tr>
+      <tr><td>NAVER Cloud Corp. — Map SDK<br>(Republic of Korea)<br>www.ncloud.com (see “Privacy Policy” at the bottom)</td><td>Showing maps in the app</td><td>When a map is shown, the app requests it directly from your device, which passes your IP address and device information.</td><td>According to NAVER Cloud's privacy policy</td><td>Maps are a core part of the app and cannot be turned off separately.</td></tr>
+      <tr><td>Kakao Corp. — Directions API<br>(Republic of Korea)<br>www.kakao.com/policy/privacy</td><td>Calculating public transit and walking routes</td><td>Start and destination coordinates (no information that identifies you)</td><td>Used only for route calculation</td><td>Nothing is sent if you do not use directions.</td></tr>
+    </tbody>
+  </table>
+  </div>
+  <p>Google and Apple sign-in go through the provider you choose, and that provider's privacy policy also applies. This website loads its fonts from Google Fonts, which passes your IP address and browser request information to Google.</p>
+
+  <h2>5. Automatic collection and ad tracking</h2>
+  <ul>
+    <li>The apps do not use cookies. They include the Firebase Analytics SDK and, on iOS only, the Meta SDK.</li>
+    <li><strong>Firebase Analytics</strong> is used for statistics on which screens and features are used. On iOS we use the version that does not use the advertising identifier (FirebaseAnalyticsCore). You can turn it off at any time with the "Usage statistics" switch in My page.</li>
+    <li><strong>iOS App Tracking Transparency (ATT)</strong>: after onboarding, the app asks whether you allow tracking across other companies' apps and websites. Meta measurement is turned on, using the advertising identifier, <strong>only if you allow it</strong>. If you do not allow it, you can still use every feature of the app.</li>
+    <li>You can change this at any time in iPhone <em>Settings &gt; Privacy &amp; Security &gt; Tracking</em>. If you turn it off, nothing more is sent to Meta for measurement.</li>
+    <li>The Android app does not include the Meta SDK.</li>
+  </ul>
+
+  <h2>6. Your rights</h2>
+  <p>You may access, correct or delete your personal information, ask us to stop processing it, or withdraw consent at any time.</p>
+  <ul>
+    <li>In the app: change your nickname, delete reviews and travel stories, delete or turn off your trail, turn off usage statistics, sign out, delete your account (My page)</li>
+    <li>In device settings: turn off location permission, turn off iOS tracking</li>
+    <li>Anything else (including deleting guest records on our server): email us (Section 9). We will act without delay (within 10 days at the latest) and tell you the result. We may ask about your sign-in method to confirm it is you.</li>
+  </ul>
+  <p>You may also exercise these rights through a legal representative or an authorized person. For help with privacy infringement you can also contact these Korean authorities:</p>
+  <ul>
+    <li>Privacy Infringement Report Center (KISA): privacy.kisa.or.kr / 118 (within Korea, no area code)</li>
+    <li>Personal Information Dispute Mediation Committee: www.kopico.go.kr / 1833-6972</li>
+    <li>Supreme Prosecutors' Office: www.spo.go.kr / 1301 (within Korea, no area code)</li>
+    <li>Korean National Police Agency (Cyber Bureau): ecrm.police.go.kr / 182 (within Korea, no area code)</li>
+  </ul>
+
+  <h2>7. Children</h2>
+  <p>The Service is not directed to children under 14, and children under 14 may not create an account. If we learn that we have collected information from a child under 14, we will delete it without delay.</p>
+
+  <h2>8. Security measures</h2>
+  <ul>
+    <li>Communication between the app and our server is encrypted with HTTPS.</li>
+    <li>Sign-in refresh tokens on our server are stored as hashes, and the Apple disconnect token is stored encrypted.</li>
+    <li>Server passwords and keys are kept in a separate secret store, apart from the code.</li>
+    <li>Access to personal information is limited to the people who run the Service, with minimum permissions.</li>
+  </ul>
+
+  <h2>9. Privacy contact</h2>
+  <p>Privacy contact: SceneTrip Operations Team · <a href="mailto:support@scenetrip.io">support@scenetrip.io</a></p>
+  <p>Please send privacy questions, complaints and requests to the email above.</p>
+
+  <h2>10. Changes to this policy</h2>
+  <p>If this policy changes, we will announce it on this page and in the app at least 7 days before it takes effect, and at least 30 days before for changes that matter to your rights, such as new data items or new third-party sharing.</p>
+  <p class="meta">Effective date: October 15, 2026</p>
+
+  <footer>© 2026 mz2az · <a href="terms.html#en">Terms of Service</a> · <a href="index.html">SceneTrip home</a></footer>
 </div>
 </body>
 </html>
