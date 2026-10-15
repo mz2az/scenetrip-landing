@@ -27,6 +27,7 @@
   .lang { font-size:.9rem; color:var(--muted); }
   h1 { font-size:1.7rem; margin:24px 0 8px; }
   h2 { font-size:1.12rem; margin:32px 0 8px; padding-top:16px; border-top:1px solid var(--line); }
+  h3 { font-size:1rem; margin:20px 0 6px; }
   p, li { color:var(--text); }
   .meta { color:var(--muted); font-size:.9rem; }
   .part { border-top:3px solid var(--line); }
@@ -82,7 +83,7 @@
   <p>② 부적절하거나 잘못된 답변은 아래 문의처로 알려 주실 수 있습니다.</p>
 
   <h2>제10조 (위치 정보와 발자취)</h2>
-  <p>운영팀은 주변 촬영지 검색, 길 안내, 그리고 회원이 켠 경우의 발자취 기록에 기기의 위치를 사용합니다. 발자취는 기본으로 꺼져 있으며 기기에만 저장됩니다. 자세한 내용은 <a href="privacy.html">개인정보처리방침</a>을 따릅니다.</p>
+  <p>운영팀은 주변 촬영지·편의시설 검색, AI 가이드의 주변 검색, 길 안내, 방문 스탬프, 그리고 이용자가 동의하고 켠 경우의 발자취 기록에 기기의 위치를 사용합니다. 발자취는 기본으로 꺼져 있으며 기기에만 저장됩니다. 자세한 내용은 아래 <a href="#location-services">위치기반서비스 장(제20조~제29조)</a>과 <a href="privacy.html#location">개인정보처리방침의 위치정보 항목</a>을 따릅니다.</p>
 
   <h2>제11조 (게시물)</h2>
   <p>① 게시물의 권리는 작성한 회원에게 있습니다. 회원은 운영팀이 서비스 안에서 게시물을 보여 주고 표시하는 데 필요한 범위에서 게시물을 이용하는 것을 허락합니다. 회원이 올린 사진은 서비스 안에서 다른 이용자에게 보입니다.</p>
@@ -121,6 +122,82 @@
   <h2>제19조 (문의)</h2>
   <p>문의: SceneTrip 운영팀<br>
   이메일: <a href="mailto:support@scenetrip.io">support@scenetrip.io</a></p>
+
+  <section aria-labelledby="location-services">
+  <h2 id="location-services">위치기반서비스</h2>
+
+  <h3>제20조 (적용과 동의)</h3>
+  <p>① 이 장은 「위치정보의 보호 및 이용 등에 관한 법률」(이하 "위치정보법")에 따라 SceneTrip의 위치기반서비스 이용 조건을 정합니다. 개인위치정보는 특정 개인의 위치를 알 수 있는 정보이며, 개인위치정보주체는 그 정보로 위치를 알 수 있는 본인을 말합니다.</p>
+  <p>② 운영팀은 위치기반서비스를 제공하기 전에 이 장의 내용을 안내하고 개인위치정보 이용에 대한 동의를 받습니다. 기기의 위치 권한 허용과 별도로 동의를 받으며, 제3조의 계속 이용에 따른 동의 간주로 이를 대신하지 않습니다. 이 장과 다른 조항이 충돌하면 위치정보에 관해서는 이 장을 우선 적용합니다.</p>
+
+  <h3>제21조 (서비스 내용과 요금)</h3>
+  <p>① 위치기반서비스는 무료입니다. 기기의 데이터 통신료는 이용자가 가입한 통신사의 요금제에 따라 별도로 발생할 수 있습니다. 유료화할 경우 제6조에 따라 미리 안내하고 동의를 받습니다.</p>
+  <p>② 위치를 사용하는 기능은 다음과 같습니다.</p>
+  <ul>
+    <li>주변 검색: 현재 위치를 기준으로 가까운 K-콘텐츠 촬영지와 편의시설(POI)을 찾습니다.</li>
+    <li>AI 가이드: 서버가 현재 위치로 주변 장소를 검색해 답변의 맥락을 제공합니다. 기기 위치 좌표는 AI 모델에 보내는 프롬프트에서 제외합니다.</li>
+    <li>길찾기·길 안내: 현재 위치와 목적지를 기준으로 경로를 계산합니다. 경로 계산에 필요한 좌표를 제24조에 따라 카카오에 전송합니다.</li>
+    <li>방문 스탬프: 촬영지에 도착했는지는 기기 안에서 확인하고, 방문 결과(장소와 시각)만 서버에 저장합니다.</li>
+    <li>발자취: 이용자가 따로 동의하고 켠 경우에만 이동 경로를 기기에 기록합니다. 기본값은 꺼짐이며 서버로 보내지 않습니다. 앱에서 기록을 끄거나 저장된 발자취를 전부 삭제할 수 있습니다.</li>
+  </ul>
+
+  <h3>제22조 (개인위치정보의 이용·보유와 파기)</h3>
+  <p>① 기기의 위치 기능으로 얻은 현재 좌표(위도·경도)는 이용자가 위치 권한을 허용한 경우 앱을 사용하는 동안에만 이용합니다. iOS에서는 '앱을 사용하는 동안' 권한을 사용하며 백그라운드 위치는 이용하지 않습니다.</p>
+  <p>② 주변 검색, AI 가이드의 주변 검색, 길찾기·길 안내 요청을 처리할 때 현재 좌표를 운영팀 서버로 보냅니다. 좌표는 해당 요청의 목적에만 사용하고, 처리가 끝나면 즉시 파기합니다. 원본 좌표를 요청 처리 이후 서버에 저장하거나 이동 이력으로 쌓지 않습니다.</p>
+  <p>③ 방문 스탬프 결과(방문한 촬영지와 방문 시각)는 방문 기록을 보여 주기 위해 서버에 탈퇴 시까지 보관하고, 탈퇴하면 지체 없이 파기합니다. 그 전에 해당 기록을 삭제하거나 관련 동의를 철회하면 해당 결과도 지체 없이 파기합니다. 발자취는 기기에만 보관하고 이용자가 삭제하거나 로그아웃·탈퇴하면 지웁니다.</p>
+  <p>④ 위치정보법 제16조제2항에 따라 위치정보 수집·이용·제공사실 확인자료를 서버의 위치정보시스템에 자동으로 기록하고, 기록한 때부터 <strong>6개월간 보관</strong>한 뒤 지체 없이 파기합니다. 확인자료는 처리 대상 식별정보, 수집·이용·제공 일시와 목적, 제공받는 자 등 처리 사실을 확인하는 데 필요한 기록이며, 원본 좌표나 발자취는 포함하지 않습니다. 동의 철회 시에는 제23조 ④항에 따라 해당 확인자료를 지체 없이 파기합니다.</p>
+  <p>⑤ 전자 기록은 복구할 수 없는 방법으로 삭제합니다. 자세한 처리 내용은 <a href="privacy.html#location">개인정보처리방침</a>에서도 확인할 수 있습니다.</p>
+
+  <h3>제23조 (개인위치정보주체의 권리와 행사 방법)</h3>
+  <p>① 이용자는 개인위치정보의 이용·제공 목적, 제공받는 자의 범위, 위치기반서비스의 일부와 통보 방법에 대한 동의를 유보할 수 있으며, 언제든지 수집·이용·제공 동의의 전부 또는 일부를 철회할 수 있습니다. 동의하지 않은 기능은 제한될 수 있지만 위치가 필요 없는 검색과 코스 만들기는 이용할 수 있습니다.</p>
+  <p>② 이용자는 개인위치정보의 수집·이용·제공을 일시적으로 중지하도록 요구할 수 있습니다. 운영팀은 이를 거절하지 않으며, 중지에 필요한 기술적 수단을 갖춥니다.</p>
+  <p>③ 이용자는 본인의 위치정보 수집·이용·제공사실 확인자료, 본인의 개인위치정보가 법령에 따라 제3자에게 제공된 이유와 내용을 열람하거나 고지받을 수 있고, 오류가 있으면 정정을 요구할 수 있습니다. 운영팀은 정당한 이유 없이 이를 거절하지 않습니다.</p>
+  <p>④ 동의를 철회하면 운영팀은 수집한 개인위치정보와 위치정보 수집·이용·제공사실 확인자료를 지체 없이 파기합니다. 일부만 철회하면 그 부분의 개인위치정보와 이용·제공사실 확인자료를 파기합니다.</p>
+  <p>⑤ 새로운 기기 위치의 이용을 멈추려면 기기 설정에서 위치 권한을 끄고, 발자취 기록은 앱에서 끌 수 있습니다. 동의 철회, 서버 기록 삭제, 일시 중지, 열람·고지·정정은 <a href="mailto:support@scenetrip.io">support@scenetrip.io</a>로 요청할 수 있습니다. 운영팀은 본인 또는 정당한 대리인임을 확인한 뒤 지체 없이 처리하고 결과를 알립니다. 기기 권한을 끄는 것만으로 기존 서버 기록이 삭제되지는 않습니다.</p>
+
+  <h3>제24조 (제3자 제공과 즉시 통보)</h3>
+  <p>① 운영팀은 이용자가 요청한 길찾기의 경로 계산을 위해 <strong>주식회사 카카오</strong>에 출발지·도착지 좌표를 제공합니다. 현재 위치를 출발지 등으로 사용하면 해당 좌표에 개인위치정보가 포함됩니다. 이름·이메일·회원 식별자는 함께 보내지 않으며, 제공 목적과 이용 기간은 해당 경로 계산이 끝날 때까지입니다. 이 길찾기 제공 외에는 개인위치정보를 제3자에게 제공하지 않습니다. 다만 법률에 특별한 규정이 있는 경우에는 그 규정에 따릅니다.</p>
+  <p>② 제공 전에 받는 자, 제공 목적·항목·보유 및 이용 기간을 안내하고 별도로 동의를 받습니다. 동의하지 않으면 좌표를 전송하지 않으며 해당 길찾기 기능은 이용할 수 없습니다.</p>
+  <p>③ 개인위치정보를 제3자에게 제공할 때는 <strong>매회 제공받는 자, 제공일시, 제공목적을 즉시 통보</strong>합니다. 원칙적으로 위치를 수집한 기기의 앱 알림으로 통보합니다. 해당 기기가 문자·음성·영상 수신 기능이 없거나 이용자가 미리 요청한 경우에는 이용자가 지정한 다른 기기 또는 이메일 주소로 통보합니다.</p>
+
+  <h3>제25조 (아동과 보호의무자의 권리)</h3>
+  <p>① 만 14세 미만은 회원가입을 할 수 없으며, 서비스는 만 14세 미만을 대상으로 하지 않습니다. 법정대리인의 동의가 있어도 회원가입 제한은 그대로 적용됩니다.</p>
+  <p>② 위치정보법 제26조는 8세 이하 아동, 피성년후견인, 법에서 정한 등록된 정신적 장애인 중 중증장애인의 생명·신체를 보호하기 위해 법정 요건을 갖춘 보호의무자가 개인위치정보의 수집·이용·제공에 동의하면 본인이 동의한 것으로 봅니다. 이 경우 보호의무자는 서면동의서와 보호의무자임을 증명하는 서류를 운영팀에 제출해야 하며, 제23조의 권리를 대신 행사할 수 있습니다. 제출 방법은 제26조의 연락처로 안내받을 수 있습니다. 이 규정은 만 14세 미만의 회원가입을 허용하는 규정이 아닙니다.</p>
+
+  <h3>제26조 (위치정보관리책임자)</h3>
+  <p>위치정보관리책임자: SceneTrip 운영팀<br>
+  이메일: <a href="mailto:support@scenetrip.io">support@scenetrip.io</a></p>
+  <p>위치정보의 보호·관리, 이용자의 권리 행사와 불만 처리를 담당합니다.</p>
+
+  <h3>제27조 (손해배상과 면책)</h3>
+  <p>① 운영팀이 위치정보법 제15조부터 제26조까지의 규정을 위반해 이용자에게 손해가 발생하면 이용자는 손해배상을 청구할 수 있습니다. 운영팀은 고의 또는 과실이 없음을 입증하지 못하면 책임을 면할 수 없습니다.</p>
+  <p>② 천재지변, 통신 장애, 기기의 위치 오차 등으로 서비스가 제한될 수 있습니다. 이 경우에도 운영팀에 고의 또는 과실이 있으면 관련 법령에 따라 책임을 집니다. 운영팀에 책임 없는 사유로 발생한 손해에 한해서만 법령이 허용하는 범위에서 면책됩니다. 무료 서비스라는 이유나 제16조의 책임 제한으로 위치정보법에 따른 책임을 배제하지 않습니다.</p>
+
+  <h3>제28조 (분쟁 해결)</h3>
+  <p>위치정보 관련 분쟁은 먼저 운영팀과 협의해 해결하도록 노력합니다. 협의가 이루어지지 않거나 협의할 수 없으면 운영팀은 위치정보법 제28조에 따라 관할 위원회에 재정을 신청할 수 있으며, 운영팀 또는 이용자는 개인정보분쟁조정위원회에 조정을 신청할 수 있습니다.</p>
+  <ul>
+    <li>방송미디어통신위원회(구 방송통신위원회): <a href="https://www.kmcc.go.kr/">www.kmcc.go.kr</a> · 대표전화 <a href="tel:+8225009000">02-500-9000</a></li>
+    <li>개인정보분쟁조정위원회: <a href="https://www.kopico.go.kr/">www.kopico.go.kr</a> · <a href="tel:18336972">1833-6972</a></li>
+  </ul>
+
+  <h3>제29조 (사업자 정보)</h3>
+  <p>운영팀은 개인사업자 등록을 준비 중입니다. 위치정보법 제9조의2의 소상공인 특례 요건을 충족하는 것을 전제로, 서비스 출시일부터 1개월 이내에 방송미디어통신위원회(구 방송통신위원회)에 위치기반서비스사업을 신고할 예정입니다. 등록·신고가 끝나면 아래 정보를 갱신합니다.</p>
+  <p>사업자 정보는 중복 없이 아래 한·영 공용 블록에서 관리합니다.</p>
+  <div id="business-info" aria-labelledby="business-info-title">
+    <h3 id="business-info-title">사업자 정보 · <span lang="en">Business information</span></h3>
+    <ul>
+      <li>운영자 · <span lang="en">Operator</span>: SceneTrip 운영팀 · <span lang="en">SceneTrip Operations Team</span></li>
+      <li>사업 형태 · <span lang="en">Business type</span>: 개인사업자 등록 예정 · <span lang="en">Sole proprietor registration planned</span></li>
+      <li>상호 · <span lang="en">Registered business name</span>: [사업자 등록 후 기재] · <span lang="en">[To be added after business registration]</span></li>
+      <li>대표자 · <span lang="en">Proprietor</span>: [사업자 등록 후 기재] · <span lang="en">[To be added after business registration]</span></li>
+      <li>주소 · <span lang="en">Business address</span>: [사업자 등록 후 기재] · <span lang="en">[To be added after business registration]</span></li>
+      <li>사업자등록번호 · <span lang="en">Business registration number</span>: [사업자 등록 후 기재] · <span lang="en">[To be added after business registration]</span></li>
+      <li>위치기반서비스사업 신고번호 · <span lang="en">Location-based service business filing number</span>: [신고 완료 후 기재] · <span lang="en">[To be added after filing is completed]</span></li>
+      <li>연락처 · <span lang="en">Contact</span>: <a href="mailto:support@scenetrip.io">support@scenetrip.io</a></li>
+    </ul>
+    <p class="meta"><a href="#business-info-en" lang="en">English Article 29</a></p>
+  </div>
+  </section>
 
   <h2>부칙</h2>
   <p>이 약관은 2026년 10월 15일부터 시행합니다.</p>
@@ -177,7 +254,7 @@
   <p>(2) You can tell us about inappropriate or wrong answers using the contact below.</p>
 
   <h2>Article 10 (Location and trail)</h2>
-  <p>We use your device's location for nearby search, directions and, if you turn it on, trail recording. Trail recording is off by default and the trail is stored only on your device. See the <a href="privacy.html#en">Privacy Policy</a> for details.</p>
+  <p>We use your device's location for nearby filming-location and amenity searches, nearby search for the AI guide, directions, visit stamps and, if you agree and turn it on, trail recording. Trail recording is off by default and the trail is stored only on your device. See the <a href="#location-services-en">Location-based services chapter (Articles 20–29)</a> below and the <a href="privacy.html#location-en">Location section of the Privacy Policy</a> for details.</p>
 
   <h2>Article 11 (Posts)</h2>
   <p>(1) You keep the rights to your posts. You allow us to use your posts to the extent needed to show and display them in the Service. Photos you upload are visible to other users in the Service.</p>
@@ -216,6 +293,68 @@
   <h2>Article 19 (Contact)</h2>
   <p>Contact: SceneTrip Operations Team<br>
   Email: <a href="mailto:support@scenetrip.io">support@scenetrip.io</a></p>
+
+  <section aria-labelledby="location-services-en">
+  <h2 id="location-services-en">Location-based services</h2>
+
+  <h3>Article 20 (Scope and consent)</h3>
+  <p>(1) This chapter sets out the conditions for using SceneTrip's location-based services under Korea's Act on the Protection and Use of Location Information (the "Location Information Act"). Personal location information is information that can reveal a particular person's location; the subject of that information is the person whose location it reveals.</p>
+  <p>(2) Before providing location-based services, we explain this chapter and obtain consent to use personal location information. We obtain this consent separately from device location permission; continued use under Article 3 does not replace it. If this chapter conflicts with another provision, this chapter takes priority for location information.</p>
+
+  <h3>Article 21 (Services and fees)</h3>
+  <p>(1) Location-based services are free. Your mobile carrier may charge for data under your plan. If we introduce fees, we will give advance notice and obtain consent under Article 6.</p>
+  <p>(2) The following features use location:</p>
+  <ul>
+    <li>Nearby search: find K-content filming locations and amenities (POIs) near your current location.</li>
+    <li>AI guide: our server uses your current location to search nearby places and provide context for answers. Device coordinates are excluded from the prompt sent to the AI model.</li>
+    <li>Directions and navigation: calculate routes using your current location and destination. Coordinates needed for route calculation are sent to Kakao Corp. under Article 24.</li>
+    <li>Visit stamps: whether you have reached a filming location is checked on your device, and only the visit result (place and time) is saved on our server.</li>
+    <li>Trail: record your movement path on your device only if you separately agree and turn it on. It is off by default and never sent to our server. You can turn recording off or delete all saved trail data in the app.</li>
+  </ul>
+
+  <h3>Article 22 (Use, retention and deletion of personal location information)</h3>
+  <p>(1) We use current coordinates (latitude and longitude) obtained through your device's location function only with your location permission and while you are using the app. On iOS, we use "When In Use" permission and do not use background location.</p>
+  <p>(2) Current coordinates are sent to our server when processing requests for nearby search, nearby search for the AI guide, and directions and navigation. We use them only for that request and delete them immediately after processing. We do not retain raw coordinates on our server beyond request processing or build a movement history.</p>
+  <p>(3) Visit stamp results (the filming location visited and the time of the visit) are stored on our server to show your visit history until you delete your account, then deleted without delay. If you delete the relevant record or withdraw the related consent earlier, we delete those results without delay. Trail data stays only on your device and is removed when you delete it, sign out or delete your account.</p>
+  <p>(4) Under Article 16(2) of the Location Information Act, we automatically record confirmation records of location information collection, use and provision in our server's location information system, retain them for <strong>6 months from recording</strong>, and then delete them without delay. These records contain information needed to confirm processing, such as the identifier of the person concerned, the time and purpose of collection, use or provision, and the recipient. They do not contain raw coordinates or trail data. If you withdraw consent, the relevant confirmation records are deleted without delay under Article 23(4).</p>
+  <p>(5) Electronic records are deleted so they cannot be recovered. More details are available in the <a href="privacy.html#location-en">Privacy Policy</a>.</p>
+
+  <h3>Article 23 (Your rights and how to exercise them)</h3>
+  <p>(1) You may withhold consent for particular purposes of use or provision, categories of recipients, parts of the location-based services, and notification methods. You may withdraw all or part of your consent to collection, use or provision at any time. Features you do not consent to may be unavailable, but search and course building that do not need your location remain available.</p>
+  <p>(2) You may request a temporary suspension of the collection, use or provision of your personal location information. We will not refuse and will provide the technical means needed to suspend it.</p>
+  <p>(3) You may access or request disclosure of confirmation records of the collection, use and provision of your location information, and the reasons for and details of any provision of your personal location information to third parties under the law. You may request correction of errors. We will not refuse without a valid reason.</p>
+  <p>(4) If you withdraw consent, we delete the personal location information collected and the confirmation records of its collection, use and provision without delay. If you withdraw only part of your consent, we delete the personal location information and confirmation records of use and provision relating to that part.</p>
+  <p>(5) To stop new use of your device's location, turn off location permission in device settings. You can turn off trail recording in the app. For consent withdrawal, deletion of server records, temporary suspension, access, disclosure or correction, email <a href="mailto:support@scenetrip.io">support@scenetrip.io</a>. After verifying your identity or your representative's authority, we will act without delay and tell you the result. Turning off device permission alone does not delete existing server records.</p>
+
+  <h3>Article 24 (Third-party provision and immediate notification)</h3>
+  <p>(1) We provide start and destination coordinates to <strong>Kakao Corp.</strong> to calculate routes when you request directions. If your current location is used as the start or another route point, these coordinates include personal location information. We do not send your name, email or member identifier with them. The purpose and period of use are limited to completing that route calculation. We do not otherwise provide personal location information to third parties, except where specifically provided by law.</p>
+  <p>(2) Before provision, we explain the recipient, purpose, data items, and retention and use period, and obtain separate consent. If you do not consent, we do not send the coordinates and the relevant directions feature is unavailable.</p>
+  <p>(3) Each time we provide personal location information to a third party, we <strong>immediately notify you of the recipient, time of provision and purpose</strong>. We normally notify you through an in-app notification on the device from which the location was collected. If that device cannot receive text, voice or video, or if you request it in advance, we notify you through another device or email address you designate.</p>
+
+  <h3>Article 25 (Children and protective guardians)</h3>
+  <p>(1) Children under 14 may not create an account, and the Service is not directed to them. This account restriction applies even with a legal representative's consent.</p>
+  <p>(2) Under Article 26 of the Location Information Act, consent from a protective guardian who meets the legal requirements is treated as the person's own consent to collection, use or provision when needed to protect the life or physical safety of a child aged 8 or younger, a person under adult guardianship, or a registered person with a mental disability who meets the statutory criteria for a severe disability. The guardian must submit written consent and documents proving their status to us, and may exercise the rights in Article 23 on the person's behalf. Submission instructions are available through the contact in Article 26. This rule does not allow children under 14 to create an account.</p>
+
+  <h3>Article 26 (Location information manager)</h3>
+  <p>Location information manager: SceneTrip Operations Team<br>
+  Email: <a href="mailto:support@scenetrip.io">support@scenetrip.io</a></p>
+  <p>The manager is responsible for protecting and managing location information, handling rights requests, and resolving complaints.</p>
+
+  <h3>Article 27 (Damages and limitations of liability)</h3>
+  <p>(1) If you suffer damage because we violate Articles 15–26 of the Location Information Act, you may claim compensation. We cannot avoid liability unless we prove that we acted without intent or negligence.</p>
+  <p>(2) Natural disasters, network outages and device location errors may limit the Service. Even in these cases, we remain responsible under applicable law if we act intentionally or negligently. We are exempt only for damage arising from causes for which we are not responsible, to the extent allowed by law. Neither the free nature of the Service nor Article 16's limitation of liability excludes our responsibility under the Location Information Act.</p>
+
+  <h3>Article 28 (Disputes)</h3>
+  <p>We will first try to resolve location information disputes through discussion. If agreement cannot be reached or discussion is not possible, we may apply to the competent commission for adjudication under Article 28 of the Location Information Act. Either we or you may apply to the Personal Information Dispute Mediation Committee for mediation.</p>
+  <ul>
+    <li>Korea Media and Communications Commission (formerly Korea Communications Commission): <a href="https://www.kmcc.go.kr/">www.kmcc.go.kr</a> · main telephone <a href="tel:+8225009000">+82-2-500-9000</a></li>
+    <li>Personal Information Dispute Mediation Committee: <a href="https://www.kopico.go.kr/">www.kopico.go.kr</a> · <a href="tel:18336972">1833-6972</a> (within Korea)</li>
+  </ul>
+
+  <h3 id="business-info-en">Article 29 (Business information)</h3>
+  <p>We are preparing to register as a sole proprietor. Subject to meeting the small-business exception requirements in Article 9-2 of the Location Information Act, we plan to file our location-based service business with the Korea Media and Communications Commission (formerly Korea Communications Commission) within 1 month after the Service launches. We will update the information once registration and filing are complete.</p>
+  <p>Business details are maintained in one <a href="#business-info">shared Korean–English business-information block</a> above to avoid duplication. Every field, including the operator, business type, registered business name, proprietor, address, registration number, filing number and contact, is also provided there in English.</p>
+  </section>
 
   <h2>Addendum</h2>
   <p>These Terms take effect on October 15, 2026.</p>

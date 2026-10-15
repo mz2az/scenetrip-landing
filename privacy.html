@@ -62,7 +62,7 @@
       <tr><td>게시물</td><td>리뷰·여행후기의 글과 첨부 사진</td><td>커뮤니티 운영</td></tr>
       <tr><td>신고·차단</td><td>신고한 회원(비회원은 기기 식별자로 만든 계정), 신고한 글, 신고 이유와 설명, 신고 당시 글의 작성자와 본문 앞부분(200자) / 차단한 회원과 차단당한 회원, 차단한 때</td><td>신고 검토, 차단한 회원의 글 숨기기</td></tr>
       <tr><td>AI 기능(AI 가이드, AI 코스 만들기)</td><td>입력한 질문과 대화, 관심 작품, 여행 조건(일수·속도·꼭 가고 싶은 곳), 코스 맥락(화면의 코스 지점, 주변 장소 이름)</td><td>AI 가이드 답변과 AI 여행 일정 생성</td></tr>
-      <tr><td>위치</td><td>기기 위치(이용자가 허용한 경우, 앱을 쓰는 동안만)</td><td>주변 촬영지·편의시설 검색, 길찾기, 방문 확인, 발자취 기록(이용자가 켠 경우)</td></tr>
+      <tr><td>위치</td><td>기기 위치(이용자가 허용한 경우, 앱을 쓰는 동안만)</td><td>주변 촬영지·편의시설 검색, AI 가이드의 주변 검색, 길찾기, 방문 확인, 발자취 기록(이용자가 켠 경우)</td></tr>
       <tr><td>자동 수집</td><td>앱 이용 기록(어떤 화면·기능을 썼는지), 기기·OS 정보, 앱 버전, IP 주소로 추정한 대략적 지역, 접속·오류 기록</td><td>서비스 개선과 통계, 안정성 확보, 부정 이용 방지</td></tr>
       <tr><td>광고 측정(iOS, 추적 허용 시에만)</td><td>광고 식별자(IDFA), 기기 정보, 앱 안의 일부 행동(장소 저장, 코스 만들기)</td><td>광고 성과 측정</td></tr>
     </tbody>
@@ -70,14 +70,17 @@
   </div>
   <p>운영팀은 주민등록번호, 결제 정보, 연락처 목록 같은 정보를 받지 않습니다. 지금 서비스에는 결제 기능이 없습니다.</p>
 
-  <h2>2. 위치정보</h2>
+  <h2 id="location">2. 위치정보</h2>
+  <p>위치기반서비스의 내용·요금, 개인위치정보의 이용·제공 동의, 보유 기간, 이용자의 권리와 행사 방법은 <a href="terms.html#location-services">이용약관의 위치기반서비스 장(제20조~제29조)</a>에서 확인할 수 있습니다. 위치정보관리책임자는 SceneTrip 운영팀이며, <a href="mailto:support@scenetrip.io">support@scenetrip.io</a>로 문의할 수 있습니다.</p>
   <ul>
-    <li>위치는 이용자가 기기 설정에서 허용한 경우에만, 앱을 쓰는 동안에만 사용합니다. 앱이 백그라운드에 있을 때는 위치를 쓰지 않습니다.</li>
-    <li>주변 검색과 길찾기를 할 때 위치를 운영팀 서버로 보내 결과를 받습니다. 길찾기 경로를 계산하기 위해 출발지·도착지 좌표가 카카오에 전달됩니다(4항 참고).</li>
-    <li>AI 가이드를 쓸 때 기기 위치 좌표는 주변 검색을 위해 운영팀 서버에서 처리하며, AI 모델에 보내는 기본 대화 내용에서는 제외합니다. AI 코스 만들기에는 공개된 촬영지의 좌표가 사용됩니다.</li>
+    <li>개인위치정보 이용 동의와 기기의 위치 권한을 받은 경우에만, 앱을 쓰는 동안에만 위치를 사용합니다. iOS에서는 '앱을 사용하는 동안' 권한을 사용하며 백그라운드 위치는 이용하지 않습니다.</li>
+    <li>주변 검색, AI 가이드의 주변 검색, 길찾기 요청을 처리할 때 현재 좌표를 운영팀 서버로 보냅니다. 원본 좌표는 요청 처리에만 쓰고 처리가 끝나면 즉시 파기하며, 서버에 이동 이력으로 저장하지 않습니다.</li>
+    <li>이용자가 길찾기를 요청하면 별도 동의를 받아 출발지·도착지 좌표를 주식회사 카카오에 경로 계산 목적으로 제공합니다. 이용 기간은 경로 계산이 끝날 때까지이며, 이름·이메일·회원 식별자는 보내지 않습니다. 개인위치정보가 제공될 때마다 받는 자·제공일시·목적을 즉시 통보합니다(통보 방법은 이용약관 제24조). 이 경우 외에는 법률에 특별한 규정이 없는 한 개인위치정보를 제3자에게 제공하지 않습니다.</li>
+    <li>AI 가이드를 쓸 때 기기 위치 좌표는 주변 검색을 위해 운영팀 서버에서 처리하며, AI 모델에 보내는 프롬프트에서는 제외합니다. AI 코스 만들기에는 공개된 촬영지의 좌표가 사용됩니다.</li>
     <li><strong>발자취(이동 경로)</strong>는 기본으로 꺼져 있고, 이용자가 동의하고 켠 경우에만 기록합니다. 발자취는 <strong>기기에만 저장되며 서버로 보내지 않습니다.</strong> 앱에서 언제든 전부 지울 수 있고, 로그아웃하거나 탈퇴하면 기기에서 삭제되며 기록 동의도 꺼집니다.</li>
-    <li>코스의 방문 체크(어느 지점을 다녀왔는지)는 발자취와 달리 코스 정보의 일부로 서버에 저장됩니다.</li>
-    <li>위치 권한은 언제든지 기기 설정에서 끌 수 있습니다. 꺼도 검색과 코스 만들기는 쓸 수 있습니다.</li>
+    <li>방문 스탬프 결과(방문한 촬영지와 방문 시각)는 발자취와 달리 코스 정보의 일부로 서버에 탈퇴 시까지 보관합니다. 탈퇴하거나 그 전에 해당 기록을 삭제하거나 관련 동의를 철회하면 지체 없이 파기합니다.</li>
+    <li>위치정보법 제16조제2항에 따라 위치정보 수집·이용·제공사실 확인자료를 서버의 위치정보시스템에 자동으로 기록하고, 기록한 때부터 <strong>6개월간 보관</strong>한 뒤 지체 없이 파기합니다. 처리 대상 식별정보, 처리 일시·목적, 제공받는 자 등 확인에 필요한 사실만 기록하며, 원본 좌표와 발자취는 포함하지 않습니다. 동의를 철회하면 철회한 부분의 개인위치정보와 해당 확인자료를 이용약관 제23조에 따라 지체 없이 파기합니다.</li>
+    <li>위치 권한은 언제든지 기기 설정에서 끌 수 있습니다. 꺼도 위치가 필요 없는 검색과 코스 만들기는 쓸 수 있습니다. 동의 철회, 서버 기록 삭제, 일시 중지, 열람·고지·정정은 위 이메일로 요청할 수 있습니다. 기기 권한을 끄는 것만으로 기존 서버 기록이 삭제되지는 않습니다.</li>
   </ul>
 
   <h2>3. 보유 기간과 파기</h2>
@@ -95,6 +98,9 @@
       <tr><td>신고 기록</td><td>접수 후 1년간 보관한 뒤 파기. 신고한 회원이 탈퇴하면 신고 기록에서 신고자 정보와의 연결을 끊습니다.</td></tr>
       <tr><td>차단 기록</td><td>어느 한쪽이 탈퇴하면 함께 삭제</td></tr>
       <tr><td>발자취</td><td>기기에만 있으며, 이용자가 지우거나 로그아웃·탈퇴하면 삭제</td></tr>
+      <tr><td>요청 처리용 원본 위치 좌표</td><td>요청 처리가 끝나면 즉시 파기</td></tr>
+      <tr><td>방문 스탬프 결과</td><td>탈퇴 시까지. 그 전에 해당 기록을 삭제하거나 관련 동의를 철회하면 지체 없이 파기</td></tr>
+      <tr><td>위치정보 수집·이용·제공사실 확인자료</td><td>자동 기록한 때부터 6개월간 보관 후 지체 없이 파기. 동의 철회 시 해당 자료는 이용약관 제23조에 따라 지체 없이 파기</td></tr>
       <tr><td>앱 이용 통계(Firebase)</td><td>14개월</td></tr>
       <tr><td>서버 접속·오류 기록</td><td>1년</td></tr>
     </tbody>
@@ -105,7 +111,7 @@
   <h3>파기 방법</h3>
   <p>전자 파일 형태의 개인정보는 복구할 수 없는 방법으로 삭제합니다. 보유 기간이 지난 정보는 서버가 정해진 주기로 자동 삭제합니다. 법령에 따라 보관해야 하는 정보는 다른 정보와 분리해 그 기간 동안만 보관합니다.</p>
 
-  <h2>4. 처리 위탁과 국외 이전</h2>
+  <h2>4. 처리 위탁·제3자 제공과 국외 이전</h2>
   <p>운영팀은 이용자의 개인정보를 판매하지 않으며, 법령에 따른 요청이 있는 경우를 빼고는 동의 없이 제3자에게 제공하지 않습니다. 서비스 운영을 위해 다음 업체에 처리를 맡기고 있고, 일부는 국외로 이전됩니다. 이전은 모두 이용자가 해당 기능을 쓸 때 네트워크(암호화된 인터넷 통신)로 이루어집니다.</p>
   <div class="scroll">
   <table>
@@ -116,10 +122,10 @@
       <tr><td>Google LLC — Firebase 애널리틱스<br>(미국)<br>support.google.com/policies → 개인정보 문의</td><td>앱 이용 통계</td><td>앱 이용 기록, 기기·OS 정보, 앱 인스턴스 식별자, 대략적 지역. 이름·이메일·좌표·글 본문·검색어 원문은 보내지 않습니다.</td><td>14개월</td><td>마이페이지의 「이용 통계 수집」 스위치로 언제든 끌 수 있습니다. 꺼도 앱 이용에는 영향이 없습니다.</td></tr>
       <tr><td>Meta Platforms, Inc. — Meta SDK(iOS)<br>(미국)<br>facebook.com/privacy/policy</td><td>광고 성과 측정</td><td>광고 식별자(IDFA), 기기 정보, 앱 안의 일부 행동(장소 저장, 코스 만들기)</td><td>Meta 데이터 정책에 따릅니다. 다만 iOS에서 추적을 허용한 경우에만 전송되며, 허용하지 않으면 아무것도 보내지 않습니다.</td><td>추적 허용 창에서 거부하거나 iPhone 설정에서 끄면 됩니다. 거부해도 앱 이용에는 영향이 없습니다.</td></tr>
       <tr><td>네이버클라우드 주식회사 — 지도 SDK<br>(대한민국)<br>www.ncloud.com (하단 「개인정보처리방침」)</td><td>앱 안의 지도 표시</td><td>지도를 표시할 때 앱이 기기에서 직접 요청하며, 이때 IP 주소와 기기 정보가 전달됩니다.</td><td>네이버클라우드의 처리방침에 따름</td><td>지도는 앱의 핵심 화면이라 따로 끌 수 없습니다.</td></tr>
-      <tr><td>주식회사 카카오 — 길찾기 API<br>(대한민국)<br>www.kakao.com/policy/privacy</td><td>대중교통·도보 길찾기 경로 계산</td><td>출발지·도착지 좌표(이용자를 식별하는 정보는 보내지 않음)</td><td>경로 계산에만 사용</td><td>길찾기를 쓰지 않으면 전송되지 않습니다.</td></tr>
     </tbody>
   </table>
   </div>
+  <p><strong>개인위치정보의 제3자 제공:</strong> 길찾기를 요청하고 별도로 동의한 경우 주식회사 카카오(대한민국)에 현재 위치를 포함할 수 있는 출발지·도착지 좌표를 제공합니다. 경로 계산 목적으로 계산이 끝날 때까지만 이용하며, 이름·이메일·회원 식별자는 보내지 않습니다. 동의를 거부하면 전송하지 않으며 해당 길찾기 기능은 이용할 수 없습니다. 제공 시 매회 즉시 통보하며 자세한 내용은 2항과 이용약관 제24조를 따릅니다. 수신자 안내: <a href="https://www.kakaomobility.com/">카카오</a>.</p>
   <p>구글·애플 로그인은 이용자가 고른 로그인 제공자를 거치며, 해당 회사의 개인정보처리방침이 함께 적용됩니다. 이 웹사이트는 글꼴을 Google Fonts에서 불러오며, 이때 Google에 IP 주소와 브라우저 요청 정보가 전달됩니다.</p>
 
   <h2>5. 자동 수집 장치와 광고 추적</h2>
@@ -192,7 +198,7 @@
       <tr><td>Posts</td><td>Text and photos in reviews and travel stories</td><td>Running the community</td></tr>
       <tr><td>Reports and blocks</td><td>Reporting member (for guests, an account created from the install identifier), reported post, reason and description, the post's author and its first 200 characters at the time of the report / blocking member, blocked member, time of block</td><td>Reviewing reports, hiding posts from members you blocked</td></tr>
       <tr><td>AI features (AI guide, AI course planner)</td><td>Questions and conversation you type, titles you are interested in, trip conditions (number of days, pace, must-visit places), course context (stops on screen, names of nearby places)</td><td>Generating AI guide answers and AI trip plans</td></tr>
-      <tr><td>Location</td><td>Device location (only if you allow it, only while the app is in use)</td><td>Nearby search, directions, visit check-ins, trail recording (if you turn it on)</td></tr>
+      <tr><td>Location</td><td>Device location (only if you allow it, only while the app is in use)</td><td>Nearby filming-location and amenity searches, nearby search for the AI guide, directions, visit check-ins, trail recording (if you turn it on)</td></tr>
       <tr><td>Collected automatically</td><td>App usage (which screens and features you use), device and OS information, app version, approximate region inferred from IP address, access and error logs</td><td>Statistics and improvement, stability, preventing abuse</td></tr>
       <tr><td>Ad measurement (iOS, only if you allow tracking)</td><td>Advertising identifier (IDFA), device information, some in-app actions (saving a place, creating a course)</td><td>Measuring ad performance</td></tr>
     </tbody>
@@ -200,14 +206,17 @@
   </div>
   <p>We do not collect national ID numbers, payment information, or your contacts. The Service has no payment feature at this time.</p>
 
-  <h2>2. Location</h2>
+  <h2 id="location-en">2. Location</h2>
+  <p>See the <a href="terms.html#location-services-en">Location-based services chapter of the Terms (Articles 20–29)</a> for services and fees, consent to use and provision of personal location information, retention periods, and your rights and how to exercise them. The location information manager is the SceneTrip Operations Team, reachable at <a href="mailto:support@scenetrip.io">support@scenetrip.io</a>.</p>
   <ul>
-    <li>We use location only if you allow it in your device settings, and only while you are using the app. We do not use location in the background.</li>
-    <li>For nearby search and directions, your location is sent to our server to get results. To calculate routes, the start and destination coordinates are sent to Kakao (see Section 4).</li>
-    <li>When you use the AI guide, your device coordinates are processed on our server for nearby search and are left out of the default conversation sent to the AI model. The AI course planner uses the coordinates of public filming locations.</li>
+    <li>We use location only with your consent to use personal location information and your device location permission, and only while you are using the app. On iOS, we use "When In Use" permission and do not use background location.</li>
+    <li>Current coordinates are sent to our server when processing requests for nearby search, nearby search for the AI guide and directions. Raw coordinates are used only to process the request and deleted immediately afterwards; we do not store a movement history on our server.</li>
+    <li>When you request directions, we obtain separate consent to provide start and destination coordinates to Kakao Corp. for route calculation. Use is limited to the time needed to complete that calculation. We do not send your name, email or member identifier. Each time personal location information is provided, we immediately notify you of the recipient, time and purpose (notification methods are in Article 24 of the Terms). We do not otherwise provide personal location information to third parties except where specifically provided by law.</li>
+    <li>When you use the AI guide, your device coordinates are processed on our server for nearby search and are excluded from the prompt sent to the AI model. The AI course planner uses the coordinates of public filming locations.</li>
     <li><strong>Trail (your movement path)</strong> is off by default and is recorded only if you agree and turn it on. Your trail is <strong>stored only on your device and never sent to our server.</strong> You can delete all of it in the app at any time. Signing out or deleting your account removes it from the device and turns recording off.</li>
-    <li>Course visit check-ins (which stops you visited) are different from the trail: they are part of your course and are stored on our server.</li>
-    <li>You can turn off location permission in your device settings at any time. Search and course building still work without it.</li>
+    <li>Visit stamp results (the filming location visited and the time of the visit) are different from the trail: they are stored on our server as part of your course until you delete your account. They are deleted without delay when you delete your account, or earlier if you delete the relevant record or withdraw the related consent.</li>
+    <li>Under Article 16(2) of the Location Information Act, we automatically record confirmation records of location information collection, use and provision in our server's location information system, retain them for <strong>6 months from recording</strong>, and then delete them without delay. We record only the facts needed for confirmation, such as the identifier of the person concerned, processing time and purpose, and recipient. Raw coordinates and trail data are excluded. If you withdraw consent, we delete the personal location information and confirmation records relating to the withdrawn consent without delay under Article 23 of the Terms.</li>
+    <li>You can turn off location permission in your device settings at any time. Search and course building that do not need your location remain available. You may request consent withdrawal, deletion of server records, temporary suspension, access, disclosure or correction through the email above. Turning off device permission alone does not delete existing server records.</li>
   </ul>
 
   <h2>3. Retention and deletion</h2>
@@ -225,6 +234,9 @@
       <tr><td>Reports</td><td>Kept for 1 year after receipt, then deleted. If the reporting member deletes their account, the report is unlinked from them.</td></tr>
       <tr><td>Blocks</td><td>Deleted when either member deletes their account</td></tr>
       <tr><td>Trail</td><td>On your device only; removed when you delete it, sign out or delete your account</td></tr>
+      <tr><td>Raw location coordinates used to process requests</td><td>Deleted immediately after request processing</td></tr>
+      <tr><td>Visit stamp results</td><td>Until you delete your account; deleted without delay if you delete the relevant record or withdraw the related consent earlier</td></tr>
+      <tr><td>Confirmation records of location information collection, use and provision</td><td>Automatically recorded and kept for 6 months from recording, then deleted without delay. On consent withdrawal, the relevant records are deleted without delay under Article 23 of the Terms.</td></tr>
       <tr><td>App statistics (Firebase)</td><td>14 months</td></tr>
       <tr><td>Server access and error logs</td><td>1 year</td></tr>
     </tbody>
@@ -235,7 +247,7 @@
   <h3>How we delete</h3>
   <p>Electronic records are deleted so that they cannot be recovered. Our server deletes information automatically on a schedule once its retention period ends. Information we must keep by law is stored separately and only for the required period.</p>
 
-  <h2>4. Processors and international transfers</h2>
+  <h2>4. Processors, third-party provision and international transfers</h2>
   <p>We do not sell your personal information, and we do not give it to third parties without your consent except where required by law. We use the following companies to run the Service; some of them receive data outside Korea. All transfers happen over the network (encrypted internet connections) when you use the related feature.</p>
   <div class="scroll">
   <table>
@@ -246,10 +258,10 @@
       <tr><td>Google LLC — Firebase Analytics<br>(USA)<br>support.google.com/policies → privacy contact</td><td>App usage statistics</td><td>App usage, device and OS information, app instance ID, approximate region. We do not send names, emails, coordinates, post text or raw search terms.</td><td>14 months</td><td>Turn it off at any time with the "Usage statistics" switch in My page. Using the app is not affected.</td></tr>
       <tr><td>Meta Platforms, Inc. — Meta SDK (iOS)<br>(USA)<br>facebook.com/privacy/policy</td><td>Ad performance measurement</td><td>Advertising identifier (IDFA), device information, some in-app actions (saving a place, creating a course)</td><td>According to Meta's data policy. Data is sent only if you allow tracking on iOS; if you do not, nothing is sent.</td><td>Decline the tracking prompt or turn tracking off in iPhone Settings. Using the app is not affected.</td></tr>
       <tr><td>NAVER Cloud Corp. — Map SDK<br>(Republic of Korea)<br>www.ncloud.com (see “Privacy Policy” at the bottom)</td><td>Showing maps in the app</td><td>When a map is shown, the app requests it directly from your device, which passes your IP address and device information.</td><td>According to NAVER Cloud's privacy policy</td><td>Maps are a core part of the app and cannot be turned off separately.</td></tr>
-      <tr><td>Kakao Corp. — Directions API<br>(Republic of Korea)<br>www.kakao.com/policy/privacy</td><td>Calculating public transit and walking routes</td><td>Start and destination coordinates (no information that identifies you)</td><td>Used only for route calculation</td><td>Nothing is sent if you do not use directions.</td></tr>
     </tbody>
   </table>
   </div>
+  <p><strong>Third-party provision of personal location information:</strong> When you request directions and separately consent, we provide start and destination coordinates, which may include your current location, to Kakao Corp. (Republic of Korea). They are used only for route calculation until it is complete. We do not send your name, email or member identifier. If you refuse consent, nothing is sent and the relevant directions feature is unavailable. We notify you immediately each time personal location information is provided; see Section 2 and Article 24 of the Terms for details. Recipient information: <a href="https://www.kakaomobility.com/">Kakao Corp.</a>.</p>
   <p>Google and Apple sign-in go through the provider you choose, and that provider's privacy policy also applies. This website loads its fonts from Google Fonts, which passes your IP address and browser request information to Google.</p>
 
   <h2>5. Automatic collection and ad tracking</h2>
