@@ -63,7 +63,7 @@
       <tr><td>신고·차단</td><td>신고한 회원(비회원은 기기 식별자로 만든 계정), 신고한 글, 신고 이유와 설명, 신고 당시 글의 작성자와 본문 앞부분(200자) / 차단한 회원과 차단당한 회원, 차단한 때</td><td>신고 검토, 차단한 회원의 글 숨기기</td></tr>
       <tr><td>AI 기능(AI 가이드, AI 코스 만들기)</td><td>입력한 질문과 대화, 관심 작품, 여행 조건(일수·속도·꼭 가고 싶은 곳), 코스 맥락(화면의 코스 지점, 주변 장소 이름)</td><td>AI 가이드 답변과 AI 여행 일정 생성</td></tr>
       <tr><td>위치</td><td>기기 위치(이용자가 허용한 경우, 앱을 쓰는 동안만)</td><td>주변 촬영지·편의시설 검색, 길찾기, 방문 확인, 발자취 기록(이용자가 켠 경우)</td></tr>
-      <tr><td>자동 수집</td><td>앱 이용 기록(어떤 화면·기능을 썼는지), 기기·OS 정보, 앱 버전, IP 주소로 추정한 대략적 지역, 접속·오류 기록</td><td>서비스 개선과 통계, 안정성 확보, 부정 이용 방지</td></tr>
+      <tr><td>자동 수집</td><td>앱 이용 기록(어떤 화면·기능을 썼는지), 기기·OS 정보, 앱 버전, IP 주소로 추정한 대략적 지역, 서버 접속·오류 기록(접속 IP·접속 일시·요청 경로)</td><td>서비스 개선과 통계, 안정성 확보, 부정 이용 방지</td></tr>
       <tr><td>광고 측정(iOS, 추적 허용 시에만)</td><td>광고 식별자(IDFA), 기기 정보, 앱 안의 일부 행동(장소 저장, 코스 만들기)</td><td>광고 성과 측정</td></tr>
     </tbody>
   </table>
@@ -86,9 +86,9 @@
     <thead><tr><th>정보</th><th>보유 기간</th></tr></thead>
     <tbody>
       <tr><td>계정 정보, 닉네임, 저장한 장소·찜·코스</td><td>탈퇴할 때까지. 탈퇴하면 지체 없이 파기합니다.</td></tr>
-      <tr><td>비회원의 서버 기록(설치 식별자에 연결된 저장한 장소·찜·코스 등)</td><td>마지막 이용 후 1년이 지나면 삭제. 그 전에도 support@scenetrip.io로 삭제를 요청할 수 있습니다. 앱을 지우는 것만으로는 서버 기록이 삭제되지 않습니다.</td></tr>
+      <tr><td>비회원의 서버 기록(설치 식별자에 연결된 저장한 장소·찜·코스 등)</td><td>마지막 이용 후 1년이 지나면 매일 실행되는 정리 작업으로 자동 삭제합니다. 그 전에도 앱의 마이페이지에서 「이 기기의 기록 지우기」로 언제든 직접 삭제할 수 있습니다. support@scenetrip.io로 삭제를 요청할 수도 있습니다. 앱을 지우는 것만으로는 서버 기록이 삭제되지 않습니다.</td></tr>
       <tr><td>리뷰·여행후기와 사진</td><td>게시물은 삭제하는 즉시 서비스 목록에서 내려갑니다. 첨부 사진은 자동 삭제 작업으로 차례로 삭제하며, 복구용 사본은 삭제 처리 후 30일이 지나면 자동 파기 절차를 밟습니다. 탈퇴할 때는 아래를 참고해 주세요.</td></tr>
-      <tr><td>데이터 정리 중 임시 보관한 리뷰 사본</td><td>서비스 데이터를 정리하는 과정에서 임시로 보관한 리뷰 사본도 삭제 요청이나 탈퇴 시 함께 삭제합니다.</td></tr>
+      <tr><td>데이터 정리 중 임시 보관한 리뷰 사본</td><td>서비스 데이터를 정리하는 과정에서 임시로 보관한 리뷰 사본은 90일간 보관한 뒤 삭제하며, 그 전에도 삭제 요청이나 탈퇴 시 함께 삭제합니다.</td></tr>
       <tr><td>조회한 작품·장소 기록</td><td>90일 후 삭제</td></tr>
       <tr><td>검색어</td><td>기기나 회원과 연결하지 않고 저장하며, 90일 후 삭제</td></tr>
       <tr><td>AI 기능 대화</td><td>대화를 이어 가기 위해 질문과 답변 일부를 서버 메모리에 임시로 둡니다. 30분 동안 쓰지 않은 대화는 이후 요청을 처리할 때 정리합니다. 중복 요청 처리를 위한 답변 사본은 만든 지 24시간이 지나면 이후 요청을 처리할 때 삭제합니다. 대화 원문을 뺀 처리 통계(결과·사용한 기능·걸린 시간)는 90일 보관합니다.</td></tr>
@@ -96,7 +96,7 @@
       <tr><td>차단 기록</td><td>어느 한쪽이 탈퇴하면 함께 삭제</td></tr>
       <tr><td>발자취</td><td>기기에만 있으며, 이용자가 지우거나 로그아웃·탈퇴하면 삭제</td></tr>
       <tr><td>앱 이용 통계(Firebase)</td><td>14개월</td></tr>
-      <tr><td>서버 접속·오류 기록</td><td>1년</td></tr>
+      <tr><td>서버 접속·오류 기록(접속 IP·접속 일시·요청 경로)</td><td>90일</td></tr>
     </tbody>
   </table>
   </div>
@@ -135,8 +135,9 @@
   <p>이용자는 언제든지 자신의 개인정보를 열람·정정·삭제하거나 처리 정지를 요구할 수 있고, 동의를 철회할 수 있습니다.</p>
   <ul>
     <li>앱에서 직접: 닉네임 변경, 리뷰·여행후기 삭제, 발자취 삭제·기록 끄기, 이용 통계 수집 끄기, 로그아웃, 탈퇴(마이페이지)</li>
+    <li>비회원 서버 기록 삭제: 앱의 마이페이지에서 「이 기기의 기록 지우기」로 언제든 직접 삭제할 수 있습니다.</li>
     <li>기기 설정에서: 위치 권한 끄기, iOS 추적 허용 끄기</li>
-    <li>그 밖의 요청(비회원 서버 기록 삭제 포함): 9항의 이메일로 보내 주시면 지체 없이(늦어도 10일 안에) 처리하고 결과를 알려 드립니다. 본인 확인을 위해 가입한 로그인 방식 등을 여쭐 수 있습니다.</li>
+    <li>그 밖의 요청: 9항의 이메일로 보내 주시면 지체 없이(늦어도 10일 안에) 처리하고 결과를 알려 드립니다. 본인 확인을 위해 가입한 로그인 방식 등을 여쭐 수 있습니다.</li>
   </ul>
   <p>법정대리인이나 위임받은 사람을 통해서도 권리를 행사할 수 있습니다. 개인정보 침해에 대한 상담과 구제는 아래 기관에도 문의할 수 있습니다.</p>
   <ul>
@@ -193,7 +194,7 @@
       <tr><td>Reports and blocks</td><td>Reporting member (for guests, an account created from the install identifier), reported post, reason and description, the post's author and its first 200 characters at the time of the report / blocking member, blocked member, time of block</td><td>Reviewing reports, hiding posts from members you blocked</td></tr>
       <tr><td>AI features (AI guide, AI course planner)</td><td>Questions and conversation you type, titles you are interested in, trip conditions (number of days, pace, must-visit places), course context (stops on screen, names of nearby places)</td><td>Generating AI guide answers and AI trip plans</td></tr>
       <tr><td>Location</td><td>Device location (only if you allow it, only while the app is in use)</td><td>Nearby search, directions, visit check-ins, trail recording (if you turn it on)</td></tr>
-      <tr><td>Collected automatically</td><td>App usage (which screens and features you use), device and OS information, app version, approximate region inferred from IP address, access and error logs</td><td>Statistics and improvement, stability, preventing abuse</td></tr>
+      <tr><td>Collected automatically</td><td>App usage (which screens and features you use), device and OS information, app version, approximate region inferred from IP address, server access and error logs (access IP address, access date and time, request path)</td><td>Statistics and improvement, stability, preventing abuse</td></tr>
       <tr><td>Ad measurement (iOS, only if you allow tracking)</td><td>Advertising identifier (IDFA), device information, some in-app actions (saving a place, creating a course)</td><td>Measuring ad performance</td></tr>
     </tbody>
   </table>
@@ -216,9 +217,9 @@
     <thead><tr><th>Information</th><th>How long we keep it</th></tr></thead>
     <tbody>
       <tr><td>Account information, nickname, saved places, favorites, courses</td><td>Until you delete your account; then deleted without delay.</td></tr>
-      <tr><td>Guest records on our server (saved places, favorites, courses and so on linked to the install identifier)</td><td>Deleted 1 year after last use. You can also ask for deletion earlier at support@scenetrip.io. Deleting the app alone does not delete server records.</td></tr>
+      <tr><td>Guest records on our server (saved places, favorites, courses and so on linked to the install identifier)</td><td>Automatically deleted by a daily cleanup job once 1 year has passed since last use. You can delete these records yourself at any time before then using "Delete this device's data" in My page in the app. You can also request deletion at support@scenetrip.io. Deleting the app alone does not delete server records.</td></tr>
       <tr><td>Reviews, travel stories and photos</td><td>A deleted post is taken off the Service's lists immediately. Attached photos are deleted in turn by an automatic deletion job, and recovery copies enter automatic disposal 30 days after deletion is processed. For account deletion, see below.</td></tr>
-      <tr><td>Temporary review copies made during data cleanup</td><td>Temporary copies of reviews kept while cleaning up Service data are also deleted on request or when you delete your account.</td></tr>
+      <tr><td>Temporary review copies made during data cleanup</td><td>Temporary copies of reviews kept while cleaning up Service data are retained for 90 days and then deleted; they are also deleted earlier on request or when you delete your account.</td></tr>
       <tr><td>Titles and places you viewed</td><td>Deleted after 90 days</td></tr>
       <tr><td>Search terms</td><td>Stored without being linked to your device or account; deleted after 90 days</td></tr>
       <tr><td>AI feature conversations</td><td>To keep a conversation going, parts of your questions and answers are held temporarily in server memory. Conversations unused for 30 minutes are cleared when later requests are processed. Copies of answers kept to handle duplicate requests are deleted, when later requests are processed, once they are 24 hours old. Processing statistics without conversation text (outcome, features used, response time) are kept for 90 days.</td></tr>
@@ -226,7 +227,7 @@
       <tr><td>Blocks</td><td>Deleted when either member deletes their account</td></tr>
       <tr><td>Trail</td><td>On your device only; removed when you delete it, sign out or delete your account</td></tr>
       <tr><td>App statistics (Firebase)</td><td>14 months</td></tr>
-      <tr><td>Server access and error logs</td><td>1 year</td></tr>
+      <tr><td>Server access and error logs (access IP address, access date and time, request path)</td><td>90 days</td></tr>
     </tbody>
   </table>
   </div>
@@ -265,8 +266,9 @@
   <p>You may access, correct or delete your personal information, ask us to stop processing it, or withdraw consent at any time.</p>
   <ul>
     <li>In the app: change your nickname, delete reviews and travel stories, delete or turn off your trail, turn off usage statistics, sign out, delete your account (My page)</li>
+    <li>Delete guest records on our server: you can delete them yourself at any time using "Delete this device's data" in My page in the app.</li>
     <li>In device settings: turn off location permission, turn off iOS tracking</li>
-    <li>Anything else (including deleting guest records on our server): email us (Section 9). We will act without delay (within 10 days at the latest) and tell you the result. We may ask about your sign-in method to confirm it is you.</li>
+    <li>Anything else: email us (Section 9). We will act without delay (within 10 days at the latest) and tell you the result. We may ask about your sign-in method to confirm it is you.</li>
   </ul>
   <p>You may also exercise these rights through a legal representative or an authorized person. For help with privacy infringement you can also contact these Korean authorities:</p>
   <ul>
